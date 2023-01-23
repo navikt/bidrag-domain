@@ -1,6 +1,6 @@
 package no.nav.domain.ident
 
-import org.junit.jupiter.api.Assertions.assertEquals
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 
@@ -26,12 +26,12 @@ internal class PersonIdentTest {
         )
 
         listeAvBrukere.forEach {
-            assertEquals(it.fnr, PersonIdent(it.fnr).verdi, "PersonIdent ${it.fnr} er gyldig")
-            assertEquals(it.dnr, PersonIdent(it.dnr).verdi, "Dnr ${it.dnr} er gyldig")
-            assertEquals(it.fødselsdato, PersonIdent(it.fnr).fødselsdato, "Finner dato for ${it.fnr}")
-            assertEquals(it.fødselsdato, PersonIdent(it.dnr).fødselsdato, "Finner dato for ${it.dnr}")
-            assertEquals(false, PersonIdent(it.fnr).erDNummer, "${it.fnr} er ikke D-nummer")
-            assertEquals(true, PersonIdent(it.dnr).erDNummer, "${it.dnr} er D-nummer")
+            PersonIdent(it.fnr).verdi shouldBe it.fnr
+            PersonIdent(it.dnr).verdi shouldBe it.dnr
+            PersonIdent(it.fnr).fødselsdato shouldBe it.fødselsdato
+            PersonIdent(it.dnr).fødselsdato shouldBe it.fødselsdato
+            PersonIdent(it.fnr).erDNummer shouldBe false
+            PersonIdent(it.dnr).erDNummer shouldBe true
         }
     }
 

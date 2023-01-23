@@ -9,8 +9,8 @@ data class Månedsperiode(override val fom: YearMonth, override val tom: YearMon
         validate()
     }
 
-    val fomDato get() = fom.atDay(1)
-    val tomDato get() = tom.atEndOfMonth()
+    val fomDato: LocalDate get() = fom.atDay(1)
+    val tomDato: LocalDate get() = tom.atEndOfMonth()
 
     constructor(fom: LocalDate, tom: LocalDate) : this(YearMonth.from(fom), YearMonth.from(tom))
 
