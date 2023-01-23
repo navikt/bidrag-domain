@@ -8,7 +8,7 @@
   <artifactId>bidrag-domain</artifactId>
   <name>bidrag-domain</name>
   <version>${revision}${sha1}${changelist}</version>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
 
 
   <properties>
