@@ -1,15 +1,29 @@
 package no.nav.domain.tid
 
+import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
+import com.fasterxml.jackson.datatype.jsr310.deser.YearMonthDeserializer
 import com.fasterxml.jackson.module.kotlin.readValue
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 import java.time.YearMonth
+import java.time.format.DateTimeFormatter
 
 internal class MånedsperiodeTest {
 
     val objectMapper = ObjectMapper()
+        .registerKotlinModule()
+        .registerModule(
+            JavaTimeModule()
+                .addDeserializer(
+                    YearMonth::class.java,
+                    YearMonthDeserializer(DateTimeFormatter.ofPattern("u-MM")) // Denne trengs for å parse år over 9999 riktig.
+                )
+        )
+        .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 
     @Test
     fun `Månedsperiode serialiserer og deserialiserer riktig ved tidenes morgen`() {
