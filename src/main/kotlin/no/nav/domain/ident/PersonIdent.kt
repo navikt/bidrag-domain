@@ -1,8 +1,9 @@
 package no.nav.domain.ident
 
+import no.nav.domain.felles.Verdiobjekt
 import java.time.LocalDate
 
-data class PersonIdent(val verdi: String) {
+data class PersonIdent(override val verdi: String) : Verdiobjekt<String> {
 
     init {
         require(gyldig()) { "$verdi tilfredstiller ikke kravet til en gyldig personIdent." }
