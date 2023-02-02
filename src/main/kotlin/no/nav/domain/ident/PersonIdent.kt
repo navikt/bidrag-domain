@@ -57,6 +57,6 @@ data class PersonIdent(override val verdi: String) : Verdiobjekt<String> {
     }
 
     override fun toString(): String {
-        return "***********"
+        return verdi.mapIndexed { index, c -> if (index % 2 == 0) c else '*' }.joinToString("")
     }
 }

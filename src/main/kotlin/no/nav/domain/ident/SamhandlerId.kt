@@ -2,7 +2,7 @@ package no.nav.domain.ident
 
 import no.nav.domain.felles.Verdiobjekt
 
-class SamhandlerId(override val verdi: String) : Verdiobjekt<String> {
+data class SamhandlerId(override val verdi: String) : Verdiobjekt<String> {
 
     init {
         require(verdi.matches(SAMHANDLER_ID_REGEX)) { "$verdi tilfredstiller ikke kravet til en gyldig samahandlerId" }
