@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test
 
 class OrganisasjonsnummerTest {
 
-
     @Test
     fun `organisasjonsnummer kaster feil ved lengder ulik 9`() {
         shouldThrow<IllegalArgumentException> { Organisasjonsnummer("9") }
@@ -36,7 +35,6 @@ class OrganisasjonsnummerTest {
         shouldThrow<IllegalArgumentException> { Organisasjonsnummer("924345460") }
     }
 
-
     @Test
     fun `organisasjonsnummer godtar gyldige verdier`() {
         shouldNotThrow<Exception> { Organisasjonsnummer("826606932") }
@@ -51,6 +49,4 @@ class OrganisasjonsnummerTest {
         shouldNotThrow<Exception> { Organisasjonsnummer("924847123") }
         shouldNotThrow<Exception> { Organisasjonsnummer("929345460") }
     }
-
-
 }
