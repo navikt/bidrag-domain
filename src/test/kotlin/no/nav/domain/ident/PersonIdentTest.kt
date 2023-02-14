@@ -6,7 +6,6 @@ import java.time.LocalDate
 
 internal class PersonIdentTest {
 
-
     @Test
     fun `skal anonmisere personIdent`() {
         PersonIdent("15507600333").toString() shouldBe "1*5*7*0*3*3"
@@ -16,7 +15,6 @@ internal class PersonIdentTest {
     }
 
     @Test
-
     fun `skal tillate helsyntetiske nummer fra dolly`() {
         val listeAvBrukere = listOf(
             SyntetiskBruker("15507600333", "55507608360", "Mann", LocalDate.of(1976, 10, 15)),
