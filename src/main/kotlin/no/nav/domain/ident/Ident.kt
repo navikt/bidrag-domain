@@ -10,6 +10,12 @@ data class Ident(override val verdi: String) : Verdiobjekt<String> {
             SamhandlerId(verdi).gyldig()
     }
 
+    val erOrganisasjonsnummer get() = Organisasjonsnummer(verdi).gyldig()
+
+    val erPersonIdent get() = PersonIdent(verdi).gyldig()
+
+    val erSamhandlerId get() = SamhandlerId(verdi).gyldig()
+
     val type
         get() =
             when {
