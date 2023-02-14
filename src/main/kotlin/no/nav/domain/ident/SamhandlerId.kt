@@ -4,8 +4,8 @@ import no.nav.domain.felles.Verdiobjekt
 
 data class SamhandlerId(override val verdi: String) : Verdiobjekt<String> {
 
-    init {
-        require(verdi.matches(SAMHANDLER_ID_REGEX)) { "$verdi tilfredstiller ikke kravet til en gyldig samahandlerId" }
+    override fun gyldig(): Boolean {
+        return verdi.matches(SAMHANDLER_ID_REGEX)
     }
 
     companion object {

@@ -4,11 +4,7 @@ import no.nav.domain.felles.Verdiobjekt
 
 data class Organisasjonsnummer(override val verdi: String) : Verdiobjekt<String> {
 
-    init {
-        require(gyldig()) { "$verdi tilfredstiller ikke kravet til et gyldig organisasjonsnummer." }
-    }
-
-    private fun gyldig(): Boolean {
+    override fun gyldig(): Boolean {
         if (verdi.length != 9 || verdi.toLongOrNull() == null) {
             return false
         }

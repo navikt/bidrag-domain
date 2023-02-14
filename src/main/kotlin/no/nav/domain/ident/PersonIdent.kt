@@ -5,13 +5,13 @@ import java.time.LocalDate
 
 data class PersonIdent(override val verdi: String) : Verdiobjekt<String> {
 
-    init {
-        require(gyldig()) { "$verdi tilfredstiller ikke kravet til en gyldig personIdent." }
-    }
-
     val erDNummer get() = verdi.substring(0, 1).toInt() > 3
-    val erNAVSyntetisk get() = verdi.substring(2, 3).toInt() >= 4 && verdi.substring(2, 3).toInt() < 8
+    val erNAVSyntetisk get() = verdi.substring(2, 3).toInt() in 4..7
     val erSkattSyntetisk get() = verdi.substring(2, 3).toInt() >= 8
+
+    /**
+     * Fødselsdato kan ikke brukes for synetiske personIdenter.
+     */
     val fødselsdato get() = beregnFødselsdato()
 
     private fun beregnFødselsdato(): LocalDate {
@@ -29,7 +29,7 @@ data class PersonIdent(override val verdi: String) : Verdiobjekt<String> {
         throw IllegalArgumentException()
     }
 
-    private fun gyldig(): Boolean {
+    override fun gyldig(): Boolean {
         if (verdi.length != 11 || verdi.toLongOrNull() == null) {
             return false
         }
