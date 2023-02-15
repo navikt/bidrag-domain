@@ -10,20 +10,19 @@ data class Ident(override val verdi: String) : Verdiobjekt<String> {
             SamhandlerId(verdi).gyldig()
     }
 
-    val erOrganisasjonsnummer get() = Organisasjonsnummer(verdi).gyldig()
+    fun erOrganisasjonsnummer() = Organisasjonsnummer(verdi).gyldig()
 
-    val erPersonIdent get() = PersonIdent(verdi).gyldig()
+    fun erPersonIdent() = PersonIdent(verdi).gyldig()
 
-    val erSamhandlerId get() = SamhandlerId(verdi).gyldig()
+    fun erSamhandlerId() = SamhandlerId(verdi).gyldig()
 
-    val type
-        get() =
-            when {
-                Organisasjonsnummer(verdi).gyldig() -> Identtype.Organisasjonsnummer
-                PersonIdent(verdi).gyldig() -> Identtype.PersonIdent
-                SamhandlerId(verdi).gyldig() -> Identtype.SamhandlerId
-                else -> Identtype.Ukjent
-            }
+    fun type() =
+        when {
+            Organisasjonsnummer(verdi).gyldig() -> Identtype.Organisasjonsnummer
+            PersonIdent(verdi).gyldig() -> Identtype.PersonIdent
+            SamhandlerId(verdi).gyldig() -> Identtype.SamhandlerId
+            else -> Identtype.Ukjent
+        }
 }
 
 enum class Identtype {
