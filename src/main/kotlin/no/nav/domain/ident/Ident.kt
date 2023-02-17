@@ -23,6 +23,14 @@ data class Ident(override val verdi: String) : Verdiobjekt<String> {
             SamhandlerId(verdi).gyldig() -> Identtype.SamhandlerId
             else -> Identtype.Ukjent
         }
+
+    override fun toString(): String {
+        return if (erPersonIdent()) {
+            verdi.mapIndexed { index, c -> if (index % 2 == 0) c else '*' }.joinToString("")
+        } else {
+            super.toString()
+        }
+    }
 }
 
 enum class Identtype {
