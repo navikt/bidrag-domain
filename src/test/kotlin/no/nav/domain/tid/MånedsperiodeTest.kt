@@ -6,6 +6,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import com.fasterxml.jackson.datatype.jsr310.deser.YearMonthDeserializer
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import io.kotest.assertions.throwables.shouldThrowMessage
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
@@ -106,6 +107,82 @@ internal class MånedsperiodeTest {
 
         snitt1til2 shouldBe snitt2til1
         snitt1til2 shouldBe Månedsperiode(YearMonth.of(2019, 3), YearMonth.of(2019, 5))
+    }
+
+    @Test
+    fun `snitt returnerer åpen periode med tom = null hvis begge periodene har tom = null`() {
+        val periode1 = Datoperiode(YearMonth.of(2019, 1), null)
+        val periode2 = Datoperiode(YearMonth.of(2019, 3), null)
+
+        val snitt = periode1 snitt periode2
+
+        snitt shouldBe Datoperiode(YearMonth.of(2019, 3), null)
+    }
+
+    @Test
+    fun `snitt returnerer periode med tom lik verdien fra perioden som har verdi for tom hvis den ene er null`() {
+        val periode1 = Datoperiode(YearMonth.of(2019, 1), null)
+        val periode2 = Datoperiode(YearMonth.of(2019, 3), YearMonth.of(2019, 12))
+
+        val snitt = periode1 snitt periode2
+
+        snitt shouldBe Datoperiode(YearMonth.of(2019, 3), YearMonth.of(2019, 12))
+    }
+
+    @Test
+    fun `union returnerer lik periode for like perioder`() {
+        val periode1 = Datoperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode2 = Datoperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+
+        val union = periode1 union periode2
+
+        union shouldBe periode1
+    }
+
+    @Test
+    fun `union returnerer riktig periode for påfølgende perioder`() {
+        val periode1 = Datoperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode2 = Datoperiode(YearMonth.of(2018, 1), YearMonth.of(2018, 12))
+
+        val union = periode1 union periode2
+
+        union shouldBe Datoperiode(YearMonth.of(2018, 1), YearMonth.of(2019, 5))
+    }
+
+    @Test
+    fun `union hvor en periode slutter med null retunere en åpen periode med tom = null`() {
+        val periode1 = Datoperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode2 = Datoperiode(YearMonth.of(2018, 1), null)
+
+        val union = periode1 union periode2
+        val union2 = periode2 union periode1
+
+        union shouldBe union2
+        union2 shouldBe Datoperiode(YearMonth.of(2018, 1), null)
+    }
+
+    @Test
+    fun `union kaster exception for perioder som ikke følger hverandre eller overlapper`() {
+        val periode1 = Datoperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode2 = Datoperiode(YearMonth.of(2018, 1), YearMonth.of(2018, 11))
+
+        shouldThrowMessage(
+            "Kan ikke lage union av perioder som $periode1 og $periode2 som ikke overlapper eller direkte følger hverandre."
+        ) {
+            periode1 union periode2
+        }
+    }
+
+    @Test
+    fun `union returnerer lik periode uansett hvilken periode som ligger til grunn`() {
+        val periode1 = Datoperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 5))
+        val periode2 = Datoperiode(YearMonth.of(2019, 3), YearMonth.of(2019, 12))
+
+        val union1til2 = periode1 union periode2
+        val union2til1 = periode2 union periode1
+
+        union1til2 shouldBe union2til1
+        union1til2 shouldBe Datoperiode(YearMonth.of(2019, 1), YearMonth.of(2019, 12))
     }
 
     @Test

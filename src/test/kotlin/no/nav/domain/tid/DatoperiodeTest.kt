@@ -73,6 +73,26 @@ internal class DatoperiodeTest {
     }
 
     @Test
+    fun `snitt returnerer åpen periode med tom = null hvis begge periodene har tom = null`() {
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), null)
+        val periode2 = Datoperiode(LocalDate.of(2019, 3, 1), null)
+
+        val snitt = periode1 snitt periode2
+
+        snitt shouldBe Datoperiode(LocalDate.of(2019, 3, 1), null)
+    }
+
+    @Test
+    fun `snitt returnerer periode med tom lik verdien fra perioden som har verdi for tom hvis den ene er null`() {
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), null)
+        val periode2 = Datoperiode(LocalDate.of(2019, 3, 1), LocalDate.of(2019, 12, 1))
+
+        val snitt = periode1 snitt periode2
+
+        snitt shouldBe Datoperiode(LocalDate.of(2019, 3, 1), LocalDate.of(2019, 12, 1))
+    }
+
+    @Test
     fun `union returnerer lik periode for like perioder`() {
         val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
         val periode2 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 1))
@@ -90,6 +110,18 @@ internal class DatoperiodeTest {
         val union = periode1 union periode2
 
         union shouldBe Datoperiode(LocalDate.of(2018, 1, 1), LocalDate.of(2019, 5, 31))
+    }
+
+    @Test
+    fun `union hvor en periode slutter med null retunere en åpen periode med tom = null`() {
+        val periode1 = Datoperiode(LocalDate.of(2019, 1, 1), LocalDate.of(2019, 5, 31))
+        val periode2 = Datoperiode(LocalDate.of(2018, 1, 1), null)
+
+        val union = periode1 union periode2
+        val union2 = periode2 union periode1
+
+        union shouldBe union2
+        union2 shouldBe Datoperiode(LocalDate.of(2018, 1, 1), null)
     }
 
     @Test
