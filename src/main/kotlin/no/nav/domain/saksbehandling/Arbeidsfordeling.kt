@@ -1,16 +1,15 @@
-package no.nav.domain.saksbehandling;
+package no.nav.domain.saksbehandling
 
 enum class Arbeidsfordeling(
   private val beskrivelse: String,
-  val gyldig: Boolean,
   val behandlingstema: String?
 ) {
 
-  BBF("Barnebortføring", true, "ab0323"),
-  EEN("Eierenhet", true, null),
-  EFS("Ektefellesak", true, "ab0325"),
-  FRS("Farskap", true, "ab0322"),
-  INH("Settekontor", true, null),
-  OPS("Oppfostringssak", true, "ab0324")
+  BBF("Barnebortføring", "ab0323"),
+  EEN("Eierenhet", null),
+  EFS("Ektefellesak", "ab0325"),
+  FRS("Farskap", "ab0322"),
+  INH("Settekontor", null),
+  OPS("Oppfostringssak", "ab0324")
 
 }

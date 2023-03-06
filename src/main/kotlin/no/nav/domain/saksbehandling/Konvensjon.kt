@@ -1,15 +1,15 @@
-package no.nav.domain.saksbehandling;
+package no.nav.domain.saksbehandling
 
-enum class Konvensjon(private val beskrivelse: String, val gyldig: Boolean) {
-  AiS("Annet - iSupport", true),
-  HiS("Haag 2007 - iSupport", true),
-  H5("Haag", true),
-  L("Lugano", true),
-  NI("Nordisk innkreving", true),
-  NY("New York", true),
-  US("USA-avtalen", true),
-  H73("Haag 1973", true),
-  INGEN("Ingen", true);
+enum class Konvensjon(private val beskrivelse: String) {
+  AiS("Annet - iSupport"),
+  HiS("Haag 2007 - iSupport"),
+  H5("Haag"),
+  L("Lugano"),
+  NI("Nordisk innkreving"),
+  NY("New York"),
+  US("USA-avtalen"),
+  H73("Haag 1973"),
+  INGEN("Ingen");
 
   override fun toString(): String {
     return beskrivelse

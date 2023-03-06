@@ -1,9 +1,9 @@
-package no.nav.domain.saksbehandling;
+package no.nav.domain.saksbehandling
 
-enum class Bidragssakstatus(val beskrivelse: String, val gyldig: Boolean) {
-  AK("Aktiv", true),
-  IN("Inaktiv", true),
-  NY("Journalsak", true),
-  SA("Sanert", true),
-  SO("Åpensøknad", true)
+enum class Bidragssakstatus(val beskrivelse: String) {
+  AK("Aktiv"),
+  IN("Inaktiv"),
+  NY("Journalsak"),
+  SA("Sanert"),
+  SO("Åpensøknad")
 }
