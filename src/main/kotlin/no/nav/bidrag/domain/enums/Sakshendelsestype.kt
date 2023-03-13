@@ -1,6 +1,6 @@
 package no.nav.bidrag.domain.enums
 
-enum class Hendelsestype(private val beskrivelse: String, val gyldig: Boolean) {
+enum class Sakshendelsestype(private val beskrivelse: String, val gyldig: Boolean) {
     ASLU("Avsluttet", true),
     AUAV("Automatisk avslag", true),
     AV("Avvist", true),
