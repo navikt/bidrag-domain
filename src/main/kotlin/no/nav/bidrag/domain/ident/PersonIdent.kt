@@ -1,6 +1,8 @@
 package no.nav.bidrag.domain.ident
 
+import jakarta.persistence.AttributeConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
+import org.springframework.core.convert.converter.Converter
 import java.time.LocalDate
 
 data class PersonIdent(override val verdi: String) : Verdiobjekt<String> {
@@ -57,6 +59,20 @@ data class PersonIdent(override val verdi: String) : Verdiobjekt<String> {
     }
 
     override fun toString(): String {
-        return verdi.mapIndexed { index, c -> if (index % 2 == 0) c else '*' }.joinToString("")
+        return verdi.mapIndexed { index, c -> if (index % 2 != 0) c else '*' }.joinToString("")
     }
+}
+
+class PersonIdentReadingConverter : Converter<String, PersonIdent> {
+    override fun convert(source: String) = PersonIdent(source)
+}
+
+class PersonIdentWritingConverter : Converter<PersonIdent, String> {
+
+    override fun convert(source: PersonIdent) = source.verdi
+}
+
+class PersonIdentConverter : AttributeConverter<PersonIdent, String> {
+    override fun convertToEntityAttribute(source: String?) = source?.let { PersonIdent(source) }
+    override fun convertToDatabaseColumn(source: PersonIdent?) = source?.verdi
 }

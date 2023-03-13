@@ -1,6 +1,8 @@
 package no.nav.bidrag.domain.ident
 
+import jakarta.persistence.AttributeConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
+import org.springframework.core.convert.converter.Converter
 
 data class Organisasjonsnummer(override val verdi: String) : Verdiobjekt<String> {
 
@@ -27,4 +29,18 @@ data class Organisasjonsnummer(override val verdi: String) : Verdiobjekt<String>
         }
         return false
     }
+}
+
+class OrganisasjonsnummerReadingConverter : Converter<String, Organisasjonsnummer> {
+    override fun convert(source: String) = Organisasjonsnummer(source)
+}
+
+class OrganisasjonsnummerWritingConverter : Converter<Organisasjonsnummer, String> {
+
+    override fun convert(source: Organisasjonsnummer) = source.verdi
+}
+
+class OrganisasjonsnummerConverter : AttributeConverter<Organisasjonsnummer, String> {
+    override fun convertToEntityAttribute(source: String?) = source?.let { Organisasjonsnummer(source) }
+    override fun convertToDatabaseColumn(source: Organisasjonsnummer?) = source?.verdi
 }

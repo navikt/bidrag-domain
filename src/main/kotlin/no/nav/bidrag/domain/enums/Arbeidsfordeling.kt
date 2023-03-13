@@ -1,4 +1,4 @@
-package no.nav.bidrag.domain.saksbehandling
+package no.nav.bidrag.domain.enums
 
 enum class Arbeidsfordeling(
     private val beskrivelse: String,
