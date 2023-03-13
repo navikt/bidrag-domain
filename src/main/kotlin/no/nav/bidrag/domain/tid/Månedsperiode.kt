@@ -9,14 +9,17 @@ data class Månedsperiode(override val fom: YearMonth, override val tom: YearMon
         validate()
     }
 
-    val fomDato: LocalDate get() = fom.atDay(1)
-    val tomDato: LocalDate? get() = tom?.atEndOfMonth()
+    val fomMåned get() = FomMåned(fom)
+    val tomMåned get() = tom?.let { TomMåned(it) }
+    val fomDato get() = FomDato(fom.atDay(1))
+    val tomDato get() = tom?.let { TomDato(it.atEndOfMonth()) }
 
     constructor(fom: LocalDate, tom: LocalDate?) : this(YearMonth.from(fom), tom?.let { YearMonth.from(tom) })
 
-    constructor(måned: YearMonth) : this(måned, måned)
-    constructor(måned: String) : this(YearMonth.parse(måned))
+    constructor(fomMåned: FomMåned, tomMåned: TomMåned? = null) : this(fomMåned.verdi, tomMåned?.verdi)
+
     constructor(fom: String, tom: String) : this(YearMonth.parse(fom), YearMonth.parse(tom))
+
     constructor(periode: Pair<String, String>) : this(periode.first, periode.second)
 
     override fun lagPeriode(fom: YearMonth, tom: YearMonth?): Månedsperiode {
@@ -43,5 +46,5 @@ data class Månedsperiode(override val fom: YearMonth, override val tom: YearMon
         return (tomEllerMax().year * 12 + tomEllerMax().monthValue) - (fom.year * 12 + fom.monthValue) + 1L
     }
 
-    fun toDatoperiode() = Datoperiode(fomDato, tomDato)
+    fun toDatoperiode() = Datoperiode(fom, tom)
 }

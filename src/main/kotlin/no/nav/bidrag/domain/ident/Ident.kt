@@ -1,6 +1,8 @@
 package no.nav.bidrag.domain.ident
 
+import jakarta.persistence.AttributeConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
+import org.springframework.core.convert.converter.Converter
 
 data class Ident(override val verdi: String) : Verdiobjekt<String> {
 
@@ -38,4 +40,18 @@ enum class Identtype {
     Organisasjonsnummer,
     SamhandlerId,
     Ukjent
+}
+
+class IdentReadingConverter : Converter<String, Ident> {
+    override fun convert(source: String) = Ident(source)
+}
+
+class IdentWritingConverter : Converter<Ident, String> {
+
+    override fun convert(source: Ident) = source.verdi
+}
+
+class IdentConverter : AttributeConverter<Ident, String> {
+    override fun convertToEntityAttribute(source: String?) = source?.let { Ident(source) }
+    override fun convertToDatabaseColumn(source: Ident?) = source?.verdi
 }
