@@ -3,7 +3,6 @@ package no.nav.bidrag.domain.ident
 import jakarta.persistence.AttributeConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
 import org.springframework.core.convert.converter.Converter
-import java.util.String
 
 data class NavCallId(override val verdi: String) : Verdiobjekt<String>
 
