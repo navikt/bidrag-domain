@@ -1,7 +1,10 @@
+@file:Suppress("unused")
+
 package no.nav.bidrag.domain.string
 
 import jakarta.persistence.AttributeConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
+import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
 data class Objektnummer(override val verdi: String) : Verdiobjekt<String> {
@@ -14,14 +17,14 @@ data class Objektnummer(override val verdi: String) : Verdiobjekt<String> {
 }
 
 class ObjektnummerReadingConverter : Converter<String, Objektnummer> {
-    override fun convert(source: String) = Objektnummer(source)
+    override fun convert(source: String) = source.trimToNull()?.let { Objektnummer(source) }
 }
 
 class ObjektnummerWritingConverter : Converter<Objektnummer, String> {
-    override fun convert(source: Objektnummer) = source.verdi
+    override fun convert(source: Objektnummer) = source.verdi.trimToNull()
 }
 
 class ObjektnummerConverter : AttributeConverter<Objektnummer, String> {
-    override fun convertToEntityAttribute(source: String?) = source?.let { Objektnummer(source) }
-    override fun convertToDatabaseColumn(source: Objektnummer?) = source?.verdi
+    override fun convertToEntityAttribute(source: String?) = source?.trimToNull()?.let { Objektnummer(source) }
+    override fun convertToDatabaseColumn(source: Objektnummer?) = source?.verdi.trimToNull()
 }

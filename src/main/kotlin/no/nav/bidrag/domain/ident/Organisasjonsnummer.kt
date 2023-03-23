@@ -1,7 +1,10 @@
+@file:Suppress("unused")
+
 package no.nav.bidrag.domain.ident
 
 import jakarta.persistence.AttributeConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
+import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
 data class Organisasjonsnummer(override val verdi: String) : Verdiobjekt<String> {
@@ -32,15 +35,15 @@ data class Organisasjonsnummer(override val verdi: String) : Verdiobjekt<String>
 }
 
 class OrganisasjonsnummerReadingConverter : Converter<String, Organisasjonsnummer> {
-    override fun convert(source: String) = Organisasjonsnummer(source)
+    override fun convert(source: String) = source.trimToNull()?.let { Organisasjonsnummer(source) }
 }
 
 class OrganisasjonsnummerWritingConverter : Converter<Organisasjonsnummer, String> {
 
-    override fun convert(source: Organisasjonsnummer) = source.verdi
+    override fun convert(source: Organisasjonsnummer) = source.verdi.trimToNull()
 }
 
 class OrganisasjonsnummerConverter : AttributeConverter<Organisasjonsnummer, String> {
-    override fun convertToEntityAttribute(source: String?) = source?.let { Organisasjonsnummer(source) }
-    override fun convertToDatabaseColumn(source: Organisasjonsnummer?) = source?.verdi
+    override fun convertToEntityAttribute(source: String?) = source?.trimToNull()?.let { Organisasjonsnummer(source) }
+    override fun convertToDatabaseColumn(source: Organisasjonsnummer?) = source?.verdi.trimToNull()
 }

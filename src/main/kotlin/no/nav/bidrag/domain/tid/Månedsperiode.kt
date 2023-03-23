@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package no.nav.bidrag.domain.tid
 
 import java.time.LocalDate

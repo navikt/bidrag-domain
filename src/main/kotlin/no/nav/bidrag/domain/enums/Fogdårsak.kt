@@ -1,10 +1,12 @@
+@file:Suppress("unused")
+
 package no.nav.bidrag.domain.enums
 
 enum class Fogdårsak(
     val beskrivelse: String,
     val gyldig: Boolean,
-    tilgangstype: Tilgangstype,
-    tilgangsrolle: String
+    val tilgangstype: Tilgangstype,
+    val tilgangsrolle: String
 ) {
     ADRE("Adresseendring", true, Tilgangstype.EIER, "Batch"),
     AUTO("Bidragsevnesprekk", true, Tilgangstype.MIDL, "Alle"),

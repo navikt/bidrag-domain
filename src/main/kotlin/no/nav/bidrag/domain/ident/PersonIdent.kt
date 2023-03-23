@@ -1,7 +1,10 @@
+@file:Suppress("unused")
+
 package no.nav.bidrag.domain.ident
 
 import jakarta.persistence.AttributeConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
+import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 import java.time.LocalDate
 
@@ -64,15 +67,15 @@ data class PersonIdent(override val verdi: String) : Verdiobjekt<String> {
 }
 
 class PersonIdentReadingConverter : Converter<String, PersonIdent> {
-    override fun convert(source: String) = PersonIdent(source)
+    override fun convert(source: String) = source.trimToNull()?.let { PersonIdent(source) }
 }
 
 class PersonIdentWritingConverter : Converter<PersonIdent, String> {
 
-    override fun convert(source: PersonIdent) = source.verdi
+    override fun convert(source: PersonIdent) = source.verdi.trimToNull()
 }
 
 class PersonIdentConverter : AttributeConverter<PersonIdent, String> {
-    override fun convertToEntityAttribute(source: String?) = source?.let { PersonIdent(source) }
-    override fun convertToDatabaseColumn(source: PersonIdent?) = source?.verdi
+    override fun convertToEntityAttribute(source: String?) = source?.trimToNull()?.let { PersonIdent(source) }
+    override fun convertToDatabaseColumn(source: PersonIdent?) = source?.verdi.trimToNull()
 }
