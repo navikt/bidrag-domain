@@ -1,7 +1,10 @@
+@file:Suppress("unused")
+
 package no.nav.bidrag.domain.string
 
 import jakarta.persistence.AttributeConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
+import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
 data class Landkode(override val verdi: String) : Verdiobjekt<String> {
@@ -14,14 +17,14 @@ data class Landkode(override val verdi: String) : Verdiobjekt<String> {
 }
 
 class LandkodeReadingConverter : Converter<String, Landkode> {
-    override fun convert(source: String) = Landkode(source)
+    override fun convert(source: String) = source.trimToNull()?.let { Landkode(source) }
 }
 
 class LandkodeWritingConverter : Converter<Landkode, String> {
-    override fun convert(source: Landkode) = source.verdi
+    override fun convert(source: Landkode) = source.verdi.trimToNull()
 }
 
 class LandkodeConverter : AttributeConverter<Landkode, String> {
-    override fun convertToEntityAttribute(source: String?) = source?.let { Landkode(source) }
-    override fun convertToDatabaseColumn(source: Landkode?) = source?.verdi
+    override fun convertToEntityAttribute(source: String?) = source?.trimToNull()?.let { Landkode(source) }
+    override fun convertToDatabaseColumn(source: Landkode?) = source?.verdi.trimToNull()
 }

@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package no.nav.bidrag.domain.enums
 
 enum class Sakshendelsestype(private val beskrivelse: String, val gyldig: Boolean) {

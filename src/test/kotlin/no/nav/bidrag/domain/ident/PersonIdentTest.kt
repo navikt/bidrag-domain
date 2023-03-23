@@ -10,6 +10,8 @@ internal class PersonIdentTest {
     fun `skal anonmisere personIdent`() {
         PersonIdent("15507600333").toString() shouldBe "*5*0*6*0*3*"
         PersonIdent("29422059278").toString() shouldBe "*9*2*0*9*7*"
+        PersonIdent("07420450952").toString() shouldBe "*7*2*4*0*5*"
+
         PersonIdent("15507600333").toString() shouldBe "*5*0*6*0*3*"
         PersonIdent("29422059278").toString() shouldBe "*9*2*0*9*7*"
     }
