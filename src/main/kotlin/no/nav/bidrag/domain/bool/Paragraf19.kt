@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.StringToBooleanConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
 import org.springframework.core.convert.converter.Converter
 
-data class Paragraf19(override val verdi: Boolean) : Verdiobjekt<Boolean>
+class Paragraf19(override val verdi: Boolean) : Verdiobjekt<Boolean>()
 
 class Paragraf19ReadingConverter : Converter<String, Paragraf19> {
     override fun convert(source: String) = Paragraf19(StringToBooleanConverter().convert(source))

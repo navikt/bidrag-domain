@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-data class Bankkode(override val verdi: String) : Verdiobjekt<String>
+class Bankkode(override val verdi: String) : Verdiobjekt<String>()
 
 class BankkodeReadingConverter : Converter<String, Bankkode> {
     override fun convert(source: String) = source.trimToNull()?.let { Bankkode(source) }

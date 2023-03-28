@@ -8,7 +8,7 @@ import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 import java.time.LocalDate
 
-data class PersonIdent(override val verdi: String) : Verdiobjekt<String> {
+class PersonIdent(override val verdi: String) : Verdiobjekt<String>() {
 
     val erDNummer get() = verdi.substring(0, 1).toInt() > 3
     val erNAVSyntetisk get() = verdi.substring(2, 3).toInt() in 4..7

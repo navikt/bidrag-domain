@@ -8,7 +8,14 @@ import org.springframework.core.convert.converter.Converter
 import java.sql.Date
 import java.time.LocalDate
 
-data class FomDato(override val verdi: LocalDate) : Verdiobjekt<LocalDate>
+class FomDato(override val verdi: LocalDate) : Verdiobjekt<LocalDate>() {
+
+    companion object {
+        fun of(år: Int, måned: Int, dag: Int): FomDato {
+            return FomDato(LocalDate.of(år, måned, dag))
+        }
+    }
+}
 
 class FomDatoReadingConverter : Converter<Date, FomDato> {
     override fun convert(source: Date) = FomDato(source.toLocalDate())

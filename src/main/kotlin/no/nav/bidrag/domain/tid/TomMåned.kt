@@ -9,7 +9,7 @@ import java.sql.Date
 import java.time.LocalDate
 import java.time.YearMonth
 
-data class TomMåned(override val verdi: YearMonth) : Verdiobjekt<YearMonth>
+class TomMåned(override val verdi: YearMonth) : Verdiobjekt<YearMonth>()
 
 class TomMånedReadingConverter : Converter<Date, TomMåned> {
     override fun convert(source: Date) = TomMåned(YearMonth.from(source.toLocalDate()))

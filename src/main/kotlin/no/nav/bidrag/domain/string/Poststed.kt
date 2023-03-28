@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-data class Poststed(override val verdi: String) : Verdiobjekt<String>
+class Poststed(override val verdi: String) : Verdiobjekt<String>()
 
 class PoststedReadingConverter : Converter<String, Poststed> {
     override fun convert(source: String) = source.trimToNull()?.let { Poststed(source) }

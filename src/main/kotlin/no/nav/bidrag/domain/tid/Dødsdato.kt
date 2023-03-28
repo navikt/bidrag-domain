@@ -8,7 +8,14 @@ import org.springframework.core.convert.converter.Converter
 import java.sql.Date
 import java.time.LocalDate
 
-data class Dødsdato(override val verdi: LocalDate) : Verdiobjekt<LocalDate>
+class Dødsdato(override val verdi: LocalDate) : Verdiobjekt<LocalDate>() {
+
+    companion object {
+        fun of(år: Int, måned: Int, dag: Int): Dødsdato {
+            return Dødsdato(LocalDate.of(år, måned, dag))
+        }
+    }
+}
 
 class DødsdatoReadingConverter : Converter<Date, Dødsdato> {
     override fun convert(source: Date) = Dødsdato(source.toLocalDate())

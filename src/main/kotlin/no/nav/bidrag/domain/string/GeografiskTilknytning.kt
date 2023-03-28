@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-data class GeografiskTilknytning(override val verdi: String) : Verdiobjekt<String>
+class GeografiskTilknytning(override val verdi: String) : Verdiobjekt<String>()
 
 class GeografiskTilknytningReadingConverter : Converter<String, GeografiskTilknytning> {
     override fun convert(source: String) = source.trimToNull()?.let { GeografiskTilknytning(source) }

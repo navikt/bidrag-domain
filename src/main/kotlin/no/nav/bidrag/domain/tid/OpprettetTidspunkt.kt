@@ -8,7 +8,7 @@ import org.springframework.core.convert.converter.Converter
 import java.sql.Timestamp
 import java.time.LocalDateTime
 
-data class OpprettetTidspunkt(override val verdi: LocalDateTime) : Verdiobjekt<LocalDateTime>
+class OpprettetTidspunkt(override val verdi: LocalDateTime) : Verdiobjekt<LocalDateTime>()
 
 class OpprettetTidspunktReadingConverter : Converter<Timestamp, OpprettetTidspunkt> {
     override fun convert(source: Timestamp) = OpprettetTidspunkt(source.toLocalDateTime())

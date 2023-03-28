@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.StringToBooleanConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
 import org.springframework.core.convert.converter.Converter
 
-data class Utland(override val verdi: Boolean) : Verdiobjekt<Boolean>
+class Utland(override val verdi: Boolean) : Verdiobjekt<Boolean>()
 
 class UtlandReadingConverter : Converter<String, Utland> {
     override fun convert(source: String) = Utland(StringToBooleanConverter().convert(source))

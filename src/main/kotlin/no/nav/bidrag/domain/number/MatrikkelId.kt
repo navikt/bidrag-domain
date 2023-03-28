@@ -6,7 +6,7 @@ import jakarta.persistence.AttributeConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
 import org.springframework.core.convert.converter.Converter
 
-data class MatrikkelId(override val verdi: Long) : Verdiobjekt<Long>
+class MatrikkelId(override val verdi: Long) : Verdiobjekt<Long>()
 
 class MatrikkelIdReadingConverter : Converter<Long, MatrikkelId> {
     override fun convert(source: Long) = MatrikkelId(source)

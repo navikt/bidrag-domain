@@ -8,7 +8,14 @@ import org.springframework.core.convert.converter.Converter
 import java.sql.Date
 import java.time.LocalDate
 
-data class Bekreftelsesdato(override val verdi: LocalDate) : Verdiobjekt<LocalDate>
+class Bekreftelsesdato(override val verdi: LocalDate) : Verdiobjekt<LocalDate>() {
+
+    companion object {
+        fun of(år: Int, måned: Int, dag: Int): Bekreftelsesdato {
+            return Bekreftelsesdato(LocalDate.of(år, måned, dag))
+        }
+    }
+}
 
 class BekreftelsesdatoReadingConverter : Converter<Date, Bekreftelsesdato> {
     override fun convert(source: Date) = Bekreftelsesdato(source.toLocalDate())

@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-data class ReellMottager(override val verdi: String) : Verdiobjekt<String> {
+class ReellMottager(override val verdi: String) : Verdiobjekt<String>() {
 
     override fun gyldig(): Boolean {
         return PersonIdent(verdi).gyldig() || SamhandlerId(verdi).gyldig()

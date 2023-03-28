@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-data class Språkkode(override val verdi: String) : Verdiobjekt<String>
+class Språkkode(override val verdi: String) : Verdiobjekt<String>()
 
 class SpråkkodeReadingConverter : Converter<String, Språkkode> {
     override fun convert(source: String) = source.trimToNull()?.let { Språkkode(source) }

@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-data class NavCallId(override val verdi: String) : Verdiobjekt<String>
+class NavCallId(override val verdi: String) : Verdiobjekt<String>()
 
 class NavCallIdReadingConverter : Converter<String, NavCallId> {
     override fun convert(source: String) = source.trimToNull()?.let { NavCallId(source) }

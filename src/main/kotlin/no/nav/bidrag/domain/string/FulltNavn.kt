@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-data class FulltNavn(override val verdi: String) : Verdiobjekt<String>
+class FulltNavn(override val verdi: String) : Verdiobjekt<String>()
 
 class FulltNavnReadingConverter : Converter<String, FulltNavn> {
     override fun convert(source: String) = source.trimToNull()?.let { FulltNavn(source) }

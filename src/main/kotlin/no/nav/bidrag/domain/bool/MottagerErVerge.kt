@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.StringToBooleanConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
 import org.springframework.core.convert.converter.Converter
 
-data class MottagerErVerge(override val verdi: Boolean) : Verdiobjekt<Boolean>
+class MottagerErVerge(override val verdi: Boolean) : Verdiobjekt<Boolean>()
 
 class MottagerErVergeReadingConverter : Converter<String, MottagerErVerge> {
     override fun convert(source: String) = MottagerErVerge(StringToBooleanConverter().convert(source))
