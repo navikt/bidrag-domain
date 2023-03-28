@@ -8,7 +8,14 @@ import org.springframework.core.convert.converter.Converter
 import java.sql.Date
 import java.time.LocalDate
 
-data class Konvensjonsdato(override val verdi: LocalDate) : Verdiobjekt<LocalDate>
+class Konvensjonsdato(override val verdi: LocalDate) : Verdiobjekt<LocalDate>() {
+
+    companion object {
+        fun of(år: Int, måned: Int, dag: Int): Konvensjonsdato {
+            return Konvensjonsdato(LocalDate.of(år, måned, dag))
+        }
+    }
+}
 
 class KonvensjonsdatoReadingConverter : Converter<Date, Konvensjonsdato> {
     override fun convert(source: Date) = Konvensjonsdato(source.toLocalDate())

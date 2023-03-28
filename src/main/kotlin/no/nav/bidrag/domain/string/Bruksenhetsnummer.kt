@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-data class Bruksenhetsnummer(override val verdi: String) : Verdiobjekt<String>
+class Bruksenhetsnummer(override val verdi: String) : Verdiobjekt<String>()
 
 class BruksenhetsnummerReadingConverter : Converter<String, Bruksenhetsnummer> {
     override fun convert(source: String) = source.trimToNull()?.let { Bruksenhetsnummer(source) }

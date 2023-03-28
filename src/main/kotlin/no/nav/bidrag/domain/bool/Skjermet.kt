@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.StringToBooleanConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
 import org.springframework.core.convert.converter.Converter
 
-data class Skjermet(override val verdi: Boolean) : Verdiobjekt<Boolean>
+class Skjermet(override val verdi: Boolean) : Verdiobjekt<Boolean>()
 
 class SkjermetReadingConverter : Converter<String, Skjermet> {
     override fun convert(source: String) = Skjermet(StringToBooleanConverter().convert(source))

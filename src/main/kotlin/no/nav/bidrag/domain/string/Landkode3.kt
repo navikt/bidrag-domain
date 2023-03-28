@@ -7,7 +7,9 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-data class Landkode3(override val verdi: String) : Verdiobjekt<String>
+class Landkode3(override val verdi: String) : Verdiobjekt<String>() {
+    override fun gyldig() = verdi.length == 3
+}
 
 class Landkode3ReadingConverter : Converter<String, Landkode3> {
     override fun convert(source: String) = source.trimToNull()?.let { Landkode3(source) }

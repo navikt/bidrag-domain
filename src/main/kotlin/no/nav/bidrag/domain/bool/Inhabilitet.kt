@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.StringToBooleanConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
 import org.springframework.core.convert.converter.Converter
 
-data class Inhabilitet(override val verdi: Boolean) : Verdiobjekt<Boolean>
+class Inhabilitet(override val verdi: Boolean) : Verdiobjekt<Boolean>()
 
 class InhabilitetReadingConverter : Converter<String, Inhabilitet> {
     override fun convert(source: String) = Inhabilitet(StringToBooleanConverter().convert(source))

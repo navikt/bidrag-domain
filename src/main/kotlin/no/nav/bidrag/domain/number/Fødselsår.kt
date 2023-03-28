@@ -6,7 +6,7 @@ import jakarta.persistence.AttributeConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
 import org.springframework.core.convert.converter.Converter
 
-data class Fødselsår(override val verdi: Int) : Verdiobjekt<Int>
+class Fødselsår(override val verdi: Int) : Verdiobjekt<Int>()
 
 class FødselsårReadingConverter : Converter<Int, Fødselsår> {
     override fun convert(source: Int) = Fødselsår(source)

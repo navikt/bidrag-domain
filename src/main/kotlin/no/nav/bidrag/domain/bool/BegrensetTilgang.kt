@@ -7,7 +7,7 @@ import no.nav.bidrag.domain.felles.StringToBooleanConverter
 import no.nav.bidrag.domain.felles.Verdiobjekt
 import org.springframework.core.convert.converter.Converter
 
-data class BegrensetTilgang(override val verdi: Boolean) : Verdiobjekt<Boolean>
+class BegrensetTilgang(override val verdi: Boolean) : Verdiobjekt<Boolean>()
 
 class BegrensetTilgangReadingConverter : Converter<String, BegrensetTilgang> {
     override fun convert(source: String) = BegrensetTilgang(StringToBooleanConverter().convert(source))
