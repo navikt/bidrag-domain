@@ -38,10 +38,10 @@ internal class PersonIdentTest {
         listeAvBrukere.forEach {
             PersonIdent(it.fnr).verdi shouldBe it.fnr
             PersonIdent(it.dnr).verdi shouldBe it.dnr
-            PersonIdent(it.fnr).fødselsdato shouldBe it.fødselsdato
-            PersonIdent(it.dnr).fødselsdato shouldBe it.fødselsdato
-            PersonIdent(it.fnr).erDNummer shouldBe false
-            PersonIdent(it.dnr).erDNummer shouldBe true
+            PersonIdent(it.fnr).fødselsdato() shouldBe it.fødselsdato
+            PersonIdent(it.dnr).fødselsdato() shouldBe it.fødselsdato
+            PersonIdent(it.fnr).erDNummer() shouldBe false
+            PersonIdent(it.dnr).erDNummer() shouldBe true
         }
     }
 

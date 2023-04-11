@@ -10,18 +10,18 @@ import java.time.LocalDate
 
 class PersonIdent(override val verdi: String) : Verdiobjekt<String>() {
 
-    val erDNummer get() = verdi.substring(0, 1).toInt() > 3
-    val erNAVSyntetisk get() = verdi.substring(2, 3).toInt() in 4..7
-    val erSkattSyntetisk get() = verdi.substring(2, 3).toInt() >= 8
+    fun  erDNummer() = verdi.substring(0, 1).toInt() > 3
+    fun  erNAVSyntetisk() = verdi.substring(2, 3).toInt() in 4..7
+    fun  erSkattSyntetisk() = verdi.substring(2, 3).toInt() >= 8
 
     /**
      * Fødselsdato kan ikke brukes for synetiske personIdenter.
      */
-    val fødselsdato get() = beregnFødselsdato()
+    fun fødselsdato() = beregnFødselsdato()
 
     private fun beregnFødselsdato(): LocalDate {
-        val dag = verdi.substring(0, 2).toInt() - (if (erDNummer) 40 else 0)
-        val måned = verdi.substring(2, 4).toInt() - (if (erNAVSyntetisk) 40 else if (erSkattSyntetisk) 80 else 0)
+        val dag = verdi.substring(0, 2).toInt() - (if (erDNummer()) 40 else 0)
+        val måned = verdi.substring(2, 4).toInt() - (if (erNAVSyntetisk()) 40 else if (erSkattSyntetisk()) 80 else 0)
         val år = verdi.substring(4, 6).toInt()
         val datoUtenÅrhundre = LocalDate.of(år, måned, dag)
         val individnummer = verdi.substring(6, 9).toInt()
