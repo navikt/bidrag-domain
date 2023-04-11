@@ -17,7 +17,9 @@ class PersonIdent(override val verdi: String) : Verdiobjekt<String>() {
     /**
      * Fødselsdato kan ikke brukes for synetiske personIdenter.
      */
-    fun beregnFødselsdato(): LocalDate {
+    fun fødselsdato() = beregnFødselsdato()
+
+    private fun beregnFødselsdato(): LocalDate {
         val dag = verdi.substring(0, 2).toInt() - (if (erDNummer()) 40 else 0)
         val måned = verdi.substring(2, 4).toInt() - (if (erNAVSyntetisk()) 40 else if (erSkattSyntetisk()) 80 else 0)
         val år = verdi.substring(4, 6).toInt()
