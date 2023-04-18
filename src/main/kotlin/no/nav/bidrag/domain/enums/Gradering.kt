@@ -1,8 +1,10 @@
+@file:Suppress("unused")
+
 package no.nav.bidrag.domain.enums
 
-enum class Gradering {
-    STRENGT_FORTROLIG,
-    FORTROLIG,
-    STRENGT_FORTROLIG_UTLAND,
-    UGRADERT
+enum class Gradering(val diskresjonskode: Diskresjonskode?) {
+    STRENGT_FORTROLIG(Diskresjonskode.SPSF),
+    FORTROLIG(Diskresjonskode.SPFO),
+    STRENGT_FORTROLIG_UTLAND(Diskresjonskode.P19),
+    UGRADERT(null)
 }
