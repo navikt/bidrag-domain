@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package no.nav.bidrag.domain.felles
 
 import com.fasterxml.jackson.annotation.JsonValue
@@ -27,6 +29,10 @@ abstract class Verdiobjekt<T : Comparable<T>> : Comparable<Verdiobjekt<T>> {
     override fun hashCode(): Int {
         return verdi.hashCode()
     }
+}
+
+fun <T : Comparable<T>> Verdiobjekt<T>?.nonNullGyldig(): Boolean {
+    return this != null && this.gyldig()
 }
 
 fun <T : Comparable<T>> Set<Verdiobjekt<T>>.verdier() = this.map { it.verdi }.toSet()
