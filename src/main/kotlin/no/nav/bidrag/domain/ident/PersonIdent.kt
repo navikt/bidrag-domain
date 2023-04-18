@@ -10,9 +10,9 @@ import java.time.LocalDate
 
 class PersonIdent(override val verdi: String) : Verdiobjekt<String>() {
 
-    fun  erDNummer() = verdi.substring(0, 1).toInt() > 3
-    fun  erNAVSyntetisk() = verdi.substring(2, 3).toInt() in 4..7
-    fun  erSkattSyntetisk() = verdi.substring(2, 3).toInt() >= 8
+    fun erDNummer() = verdi.substring(0, 1).toInt() > 3
+    fun erNAVSyntetisk() = verdi.substring(2, 3).toInt() in 4..7
+    fun erSkattSyntetisk() = verdi.substring(2, 3).toInt() >= 8
 
     /**
      * Fødselsdato kan ikke brukes for synetiske personIdenter.

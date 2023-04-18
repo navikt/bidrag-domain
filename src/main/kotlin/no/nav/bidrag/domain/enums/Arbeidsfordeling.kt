@@ -2,15 +2,17 @@
 
 package no.nav.bidrag.domain.enums
 
+import no.nav.bidrag.domain.string.Behandlingstema
+
 enum class Arbeidsfordeling(
     private val beskrivelse: String,
-    val behandlingstema: String?
+    val behandlingstema: Behandlingstema?
 ) {
 
-    BBF("Barnebortføring", "ab0323"),
+    BBF("Barnebortføring", Behandlingstema("ab0323")),
     EEN("Eierenhet", null),
-    EFS("Ektefellesak", "ab0325"),
-    FRS("Farskap", "ab0322"),
+    EFS("Ektefellesak", Behandlingstema("ab0325")),
+    FRS("Farskap", Behandlingstema("ab0322")),
     INH("Settekontor", null),
-    OPS("Oppfostringssak", "ab0324")
+    OPS("Oppfostringssak", Behandlingstema("ab0324)"))
 }

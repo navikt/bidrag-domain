@@ -3,8 +3,8 @@
 package no.nav.bidrag.domain.bool
 
 import jakarta.persistence.AttributeConverter
-import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.felles.StringToBooleanConverter
+import no.nav.bidrag.domain.felles.Verdiobjekt
 import org.springframework.core.convert.converter.Converter
 
 class FlereForekomster(override val verdi: Boolean) : Verdiobjekt<Boolean>()
