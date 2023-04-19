@@ -7,7 +7,11 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-class Adresselinje3(override val verdi: String) : Verdiobjekt<String>()
+class Adresselinje3(override val verdi: String) : Verdiobjekt<String>() {
+    override fun gyldig(): Boolean {
+        return verdi.isNotBlank()
+    }
+}
 
 class Adresselinje3ReadingConverter : Converter<String, Adresselinje3> {
     override fun convert(source: String) = source.trimToNull()?.let { Adresselinje3(source) }

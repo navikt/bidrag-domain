@@ -7,7 +7,11 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-class Kommunenummer(override val verdi: String) : Verdiobjekt<String>()
+class Kommunenummer(override val verdi: String) : Verdiobjekt<String>() {
+    override fun gyldig(): Boolean {
+        return verdi.isNotBlank()
+    }
+}
 
 class KommunenummerReadingConverter : Converter<String, Kommunenummer> {
     override fun convert(source: String) = source.trimToNull()?.let { Kommunenummer(source) }
