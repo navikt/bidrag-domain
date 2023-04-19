@@ -7,7 +7,11 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-class Valutakode(override val verdi: String) : Verdiobjekt<String>()
+class Valutakode(override val verdi: String) : Verdiobjekt<String>() {
+    override fun gyldig(): Boolean {
+        return verdi.isNotBlank()
+    }
+}
 
 class ValutakodeReadingConverter : Converter<String, Valutakode> {
     override fun convert(source: String) = source.trimToNull()?.let { Valutakode(source) }

@@ -7,7 +7,11 @@ import no.nav.bidrag.domain.felles.Verdiobjekt
 import no.nav.bidrag.domain.util.trimToNull
 import org.springframework.core.convert.converter.Converter
 
-class OffentligIdtype(override val verdi: String) : Verdiobjekt<String>()
+class OffentligIdtype(override val verdi: String) : Verdiobjekt<String>() {
+    override fun gyldig(): Boolean {
+        return verdi.isNotBlank()
+    }
+}
 
 class OffentligIdtypeReadingConverter : Converter<String, OffentligIdtype> {
     override fun convert(source: String) = source.trimToNull()?.let { OffentligIdtype(source) }

@@ -1,6 +1,10 @@
+@file:Suppress("unused")
+
 package no.nav.bidrag.domain.felles
 
 import com.fasterxml.jackson.annotation.JsonValue
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.contract
 
 abstract class Verdiobjekt<T : Comparable<T>> : Comparable<Verdiobjekt<T>> {
 
@@ -27,6 +31,22 @@ abstract class Verdiobjekt<T : Comparable<T>> : Comparable<Verdiobjekt<T>> {
     override fun hashCode(): Int {
         return verdi.hashCode()
     }
+}
+
+@OptIn(ExperimentalContracts::class)
+fun <T : Comparable<T>> Verdiobjekt<T>?.ikkeNullOgGyldig(): Boolean {
+    contract {
+        returns(true) implies (this@ikkeNullOgGyldig != null)
+    }
+    return this != null && this.gyldig()
+}
+
+@OptIn(ExperimentalContracts::class)
+fun <T : Comparable<T>> Verdiobjekt<T>?.erNullEllerUgyldig(): Boolean {
+    contract {
+        returns(false) implies (this@erNullEllerUgyldig != null)
+    }
+    return this == null || !this.gyldig()
 }
 
 fun <T : Comparable<T>> Set<Verdiobjekt<T>>.verdier() = this.map { it.verdi }.toSet()
