@@ -21,11 +21,12 @@ abstract class Verdiobjekt<T : Comparable<T>> : Comparable<Verdiobjekt<T>> {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is Verdiobjekt<*>) return false
-
-        if (verdi != other.verdi) return false
-
-        return true
+        if (other == null) return false
+        if (other !is Verdiobjekt<*>)
+            throw IllegalArgumentException("Programmeringsfeil: ${this::class} kan ikke sammenlignes med ${other::class}.")
+        if (verdi::class != other.verdi::class)
+            throw IllegalArgumentException("Programmeringsfeil: Verditype ${verdi::class} kan ikke smmanlignes med ${other.verdi::class}.")
+        return verdi == other.verdi
     }
 
     override fun hashCode(): Int {
