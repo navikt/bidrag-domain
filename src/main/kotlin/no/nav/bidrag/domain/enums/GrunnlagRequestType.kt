@@ -1,4 +1,4 @@
-package no.nav.bidrag.behandling.felles.enums
+package no.nav.bidrag.domain.enums
 
 /**
  * Typer grunnlag som kan innhentes av tjenesten bidrag-grunnlag.

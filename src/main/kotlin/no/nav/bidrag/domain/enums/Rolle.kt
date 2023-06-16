@@ -1,4 +1,4 @@
-package no.nav.bidrag.behandling.felles.enums
+package no.nav.bidrag.domain.enums
 
 enum class Rolle(val kortnavn: String) {
     BIDRAGSPLIKTIG("BP"),

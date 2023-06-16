@@ -1,4 +1,4 @@
-package no.nav.bidrag.behandling.felles.enums.barnetilsyn
+package no.nav.bidrag.domain.enums.barnetilsyn
 
 enum class Tilsyntype {
     HELTID,

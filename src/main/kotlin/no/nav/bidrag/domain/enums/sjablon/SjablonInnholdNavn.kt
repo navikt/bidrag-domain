@@ -1,4 +1,4 @@
-package no.nav.bidrag.behandling.felles.enums.sjablon
+package no.nav.bidrag.domain.enums.sjablon
 
 enum class SjablonInnholdNavn(val navn: String) {
     BARNETILSYN_BELOP("BarnetilsynBeløp"),
