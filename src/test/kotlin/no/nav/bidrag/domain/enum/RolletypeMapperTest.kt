@@ -12,8 +12,11 @@ class RolletypeMapperTest {
 
     @Test
     fun `skal serialisere rolletype BM til BIDRAGSMOTTKER`() {
-        objectmapper.writeValueAsString(Rolletype.BM) shouldBe "BM"
-        objectmapper.writeValueAsString(Rolletype.BIDRAGSMOTTAKER) shouldBe "BIDRAGSMOTTAKER"
+        objectmapper.writeValueAsString(Rolletype.BIDRAGSMOTTAKER) shouldBe "\"BM\""
+        objectmapper.writeValueAsString(Rolletype.BIDRAGSPLIKTIG) shouldBe "\"BP\""
+        objectmapper.writeValueAsString(Rolletype.BARN) shouldBe "\"BA\""
+        objectmapper.writeValueAsString(Rolletype.REELMOTTAKER) shouldBe "\"RM\""
+        objectmapper.writeValueAsString(Rolletype.FEILREGISTRERT) shouldBe "\"FR\""
     }
 
     @Test
@@ -31,7 +34,3 @@ class RolletypeMapperTest {
         objectmapper.readValue("\"RM\"", Rolletype::class.java) shouldBe Rolletype.REELMOTTAKER
     }
 }
-
-data class Result(
-    val rolletype: Rolletype
-)
