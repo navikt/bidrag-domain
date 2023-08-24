@@ -5,24 +5,24 @@ package no.nav.bidrag.domain.enums
 import com.fasterxml.jackson.annotation.JsonAlias
 import com.fasterxml.jackson.annotation.JsonProperty
 
-enum class Rolletype(val beskrivelse: String) {
+enum class Rolletype {
     @JsonProperty("BA")
     @JsonAlias("BARN")
-    BARN("Barn"),
+    BARN,
 
     @JsonProperty("BM")
     @JsonAlias("BIDRAGSMOTTAKER")
-    BIDRAGSMOTTAKER("Bidragsmottaker"),
+    BIDRAGSMOTTAKER,
 
     @JsonProperty("BP")
     @JsonAlias("BIDRAGSPLIKTIG")
-    BIDRAGSPLIKTIG("Bidragspliktig"),
+    BIDRAGSPLIKTIG,
 
     @JsonProperty("FR")
     @JsonAlias("FEILREGISTRERT")
-    FEILREGISTRERT("Feilregistrert"),
+    FEILREGISTRERT,
 
     @JsonProperty("RM")
     @JsonAlias("REELMOTTAKER")
-    REELMOTTAKER("Reellmottaker");
+    REELMOTTAKER;
 }
