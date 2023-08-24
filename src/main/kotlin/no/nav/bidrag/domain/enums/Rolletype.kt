@@ -2,10 +2,27 @@
 
 package no.nav.bidrag.domain.enums
 
-enum class Rolletype(val beskrivelse: String) {
-    BA("Barn"),
-    BM("Bidragsmottaker"),
-    BP("Bidragspliktig"),
-    FR("Feilregistrert"),
-    RM("ReellMottaker");
+import com.fasterxml.jackson.annotation.JsonAlias
+import com.fasterxml.jackson.annotation.JsonProperty
+
+enum class Rolletype {
+    @JsonProperty("BA")
+    @JsonAlias("BARN")
+    BARN,
+
+    @JsonProperty("BM")
+    @JsonAlias("BIDRAGSMOTTAKER")
+    BIDRAGSMOTTAKER,
+
+    @JsonProperty("BP")
+    @JsonAlias("BIDRAGSPLIKTIG")
+    BIDRAGSPLIKTIG,
+
+    @JsonProperty("FR")
+    @JsonAlias("FEILREGISTRERT")
+    FEILREGISTRERT,
+
+    @JsonProperty("RM")
+    @JsonAlias("REELMOTTAKER")
+    REELMOTTAKER;
 }

@@ -18,7 +18,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <kotlin.version>1.8.0</kotlin.version>
     <kotlin.code.style>official</kotlin.code.style>
-    <jackson.version>2.14.1</jackson.version>
+    <jackson.version>2.15.2</jackson.version>
     <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
     <mockk.version>1.13.2</mockk.version>
     <kotest.version>5.5.4</kotest.version>
@@ -70,6 +70,11 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-annotations</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
       <version>${jackson.version}</version>
     </dependency>
     <dependency>
