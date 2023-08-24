@@ -1,0 +1,37 @@
+package no.nav.bidrag.domain.enum
+
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
+import io.kotest.matchers.shouldBe
+import no.nav.bidrag.domain.enums.Rolletype
+import org.junit.jupiter.api.Test
+
+class RolletypeMapperTest {
+
+    val objectmapper = ObjectMapper().findAndRegisterModules().registerKotlinModule()
+
+    @Test
+    fun `skal serialisere rolletype BM til BIDRAGSMOTTKER`() {
+        objectmapper.writeValueAsString(Rolletype.BM) shouldBe "BM"
+        objectmapper.writeValueAsString(Rolletype.BIDRAGSMOTTAKER) shouldBe "BIDRAGSMOTTAKER"
+    }
+
+    @Test
+    fun `skal deserialisere rolletype`() {
+        objectmapper.readValue("\"BARN\"", Rolletype::class.java) shouldBe Rolletype.BARN
+        objectmapper.readValue("\"BA\"", Rolletype::class.java) shouldBe Rolletype.BARN
+
+        objectmapper.readValue("\"BIDRAGSMOTTAKER\"", Rolletype::class.java) shouldBe Rolletype.BIDRAGSMOTTAKER
+        objectmapper.readValue("\"BM\"", Rolletype::class.java) shouldBe Rolletype.BIDRAGSMOTTAKER
+
+        objectmapper.readValue("\"BIDRAGSPLIKTIG\"", Rolletype::class.java) shouldBe Rolletype.BIDRAGSPLIKTIG
+        objectmapper.readValue("\"BP\"", Rolletype::class.java) shouldBe Rolletype.BIDRAGSPLIKTIG
+
+        objectmapper.readValue("\"REELMOTTAKER\"", Rolletype::class.java) shouldBe Rolletype.REELMOTTAKER
+        objectmapper.readValue("\"RM\"", Rolletype::class.java) shouldBe Rolletype.REELMOTTAKER
+    }
+}
+
+data class Result(
+    val rolletype: Rolletype
+)
