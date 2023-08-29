@@ -11,5 +11,5 @@ enum class InntektBeskrivelse(val visningsnavn: String) {
     KONTANTSTØTTE("Kontantstøtte"),
     OVERGANGSSTØNAD("Overgangsstønad"),
     OVERGANGSSTØNAD_BEREGNET_3MND("Overgangsstønad siste 3 mnd"),
-    OVERGANGSSTØNAD_BEREGNET_12MND("Overgangsstønad siste 12 mnd")
+    OVERGANGSSTØNAD_BEREGNET_12MND("Overgangsstønad siste 12 mnd"),
 }
