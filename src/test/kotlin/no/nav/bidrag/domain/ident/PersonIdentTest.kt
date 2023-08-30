@@ -45,5 +45,17 @@ internal class PersonIdentTest {
         }
     }
 
+    @Test
+    fun `skal ikke tolke samhandlere som personidenter`() {
+        PersonIdent("80000000000").gyldig() shouldBe false
+        PersonIdent("80000000000").erDNummer() shouldBe false
+        PersonIdent("80000000000").erSkattSyntetisk() shouldBe false
+        PersonIdent("80000000000").erNAVSyntetisk() shouldBe false
+        PersonIdent("90000000000").gyldig() shouldBe false
+        PersonIdent("90000000000").erDNummer() shouldBe false
+        PersonIdent("90000000000").erSkattSyntetisk() shouldBe false
+        PersonIdent("90000000000").erNAVSyntetisk() shouldBe false
+    }
+
     data class SyntetiskBruker(val fnr: String, val dnr: String, val kjønn: String, val fødselsdato: LocalDate)
 }

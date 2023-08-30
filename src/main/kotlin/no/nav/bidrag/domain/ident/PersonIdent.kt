@@ -10,7 +10,7 @@ import java.time.LocalDate
 
 class PersonIdent(override val verdi: String) : Verdiobjekt<String>() {
 
-    fun erDNummer() = verdi.substring(0, 1).toInt() > 3
+    fun erDNummer() = verdi.substring(0, 1).toInt() in 4..7
     fun erNAVSyntetisk() = verdi.substring(2, 3).toInt() in 4..7
     fun erSkattSyntetisk() = verdi.substring(2, 3).toInt() >= 8
 
@@ -35,7 +35,7 @@ class PersonIdent(override val verdi: String) : Verdiobjekt<String>() {
     }
 
     override fun gyldig(): Boolean {
-        if (verdi.length != 11 || verdi.toLongOrNull() == null) {
+        if (verdi.length != 11 || verdi.toLongOrNull() == null || verdi.substring(0, 1).toInt() in 8..9) {
             return false
         }
 
