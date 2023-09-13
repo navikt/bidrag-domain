@@ -11,7 +11,7 @@ enum class ResultatKodeBarnebidrag {
     BIDRAG_SATT_TIL_BARNETILLEGG_FORSVARET,                     // Barnebidrag settes likt barnetillegg fra forsvaret
     BIDRAG_SATT_TIL_UNDERHOLDSKOSTNAD_MINUS_BARNETILLEGG_BM,    // Beregnet bidrag er lavere enn underholdskostnad minus barnetilleggBM
     DELT_BOSTED,                                                // Barnet bor like mye hos begge foreldre
-    FORHOLDSMESSIG_FORDELING_BIDRAGSBELOP_ENDRET ,               // Beregning av forholdsmessig fordeling er utført og det er beregnet nytt bidragsbeløp
+    FORHOLDSMESSIG_FORDELING_BIDRAGSBELOP_ENDRET ,              // Beregning av forholdsmessig fordeling er utført og det er beregnet nytt bidragsbeløp
     FORHOLDSMESSIG_FORDELING_INGEN_ENDRING,                     // Beregning av forholdsmessig fordeling er utført og det er ingen endringer på bidragsbeløp
     INGEN_EVNE,                                                 // BP har 0.- i bidragsevne, bidrag satt til 0.-
     KOSTNADSBEREGNET_BIDRAG,                                    // Kostnadsberegnet bidrag
