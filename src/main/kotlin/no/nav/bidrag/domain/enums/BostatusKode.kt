@@ -1,12 +1,11 @@
 package no.nav.bidrag.domain.enums
 
 enum class BostatusKode {
-    // Forskudd
-    ALENE,
-    MED_FORELDRE,
-    MED_ANDRE_ENN_FORELDRE,
-    ENSLIG_ASYLANT,
+    // Forskudd (barn)
+    BOR_MED_FORELDRE,
+    BOR_IKKE_MED_FORELDRE,
 
-    // Bidragsevne
-    MED_ANDRE
+    // Bidragsevne (BP særtilskudd/bidrag)
+    MED_ANDRE,
+    ALENE
 }
