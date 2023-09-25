@@ -1,160 +1,422 @@
 package no.nav.bidrag.domain.enums
 
 import java.time.LocalDate
-import java.util.Arrays
 
 enum class InntektType(
-    val beskrivelse: String,
-    val belopstype: String,
-    val gruppe: String,
-    val maaVelges: Boolean,
+    val visningsnavn: String,
+    val tilhørerInntektGruppe: InntektGruppe,
     val forskudd: Boolean,
     val bidrag: Boolean,
-    val saertilskudd: Boolean,
+    val særtilskudd: Boolean,
     val bidragspliktig: Boolean,
     val bidragsmottaker: Boolean,
-    val soknadsbarn: Boolean,
+    val søknadsbarn: Boolean,
     val gyldigFom: LocalDate,
-    val gyldigTil: LocalDate
+    val gyldigTil: LocalDate,
+    val aktuellINyLøsning: Boolean
 ) {
 
     INNTEKTSOPPLYSNINGER_ARBEIDSGIVER(
-        "Inntektsopplysninger fra arbeidsgiver", "AG", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+        "Inntektsopplysninger fra arbeidsgiver",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        false
     ),
-    ALOYSE(
-        "Aløyse", "AL", "A",
-        false, false, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+    DAGPENGER(
+        "Dagpenger",
+        InntektGruppe.UKJENT,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
-    ATTFORING_AAP(
-        "Attføring/AAP", "AT", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+    AAP(
+        "AAP",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
     BARNETRYGD_MANUELL_VURDERING(
-        "Barnetrygd manuell vurdering", "BAMV", "",
-        true, true, true, true, true, true, false, LocalDate.MIN, LocalDate.MAX
+        "Barnetrygd manuell vurdering",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        false
     ),
     BARNS_SYKDOM(
-        "Barns sykdom", "BS", "",
-        false, true, true, true, true, true, false, LocalDate.MIN, LocalDate.parse("2018-01-01")
+        "Barns sykdom",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        LocalDate.MIN,
+        LocalDate.parse("2018-01-01"),
+        false
     ),
-    OVERGANGSSTONAD(
-        "Overgangsstønad", "EFOS", "",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+    OVERGANGSSTØNAD(
+        "Overgangsstønad",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
-    EKSTRA_SMAABARNSTILLEGG(
-        "Ekstra småbarnstillegg", "ESBT", "BMA",
-        true, true, true, true, false, true, false, LocalDate.MIN, LocalDate.MAX
+    SMÅBARNSTILLEGG(
+        "Småbarnstillegg",
+        InntektGruppe.INGEN,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
-    MANGLENDE_BRUK_EVNE_SKJONN(
-        "Manglende bruk av evne (skjønn)", "EVNE", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+    MANGLENDE_BRUK_EVNE_SKJØNN(
+        "Manglende bruk av evne (skjønn)",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        false
     ),
-    FOEDSEL_ADOPSJON(
-        "Fødsels- og adopsjonspenger", "FA", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+    FØDSEL_ADOPSJON(
+        "Fødsels- og adopsjonspenger",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
-    FORDEL_SAERFRADRAG_ENSLIG_FORSORGER(
-        "Fordel særfradrag enslig forsørger", "FSEF", "C",
-        false, false, true, true, false, true, false, LocalDate.parse("2013-01-01"), LocalDate.MAX
+    FORDEL_SÆRFRADRAG_ENSLIG_FORSØRGER(
+        "Fordel særfradrag enslig forsørger",
+        InntektGruppe.UKJENT,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        LocalDate.parse("2013-01-01"),
+        LocalDate.parse("2023-03-01"),
+        false
     ),
     LIGNINGSOPPLYSNINGER_MANGLER(
-        "Ingen ligningsopplysninger finnes", "ILOF", "",
-        false, false, true, false, true, true, false, LocalDate.MIN, LocalDate.parse("2007-01-01")
+        "Ingen ligningsopplysninger finnes",
+        InntektGruppe.UKJENT,
+        false,
+        true,
+        false,
+        true,
+        true,
+        false,
+        LocalDate.MIN,
+        LocalDate.parse("2007-01-01"),
+        false
     ),
     NETTO_KAPITALINNTEKT(
-        "Netto kapitalinntekt", "KAP", "B",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.parse("2017-01-01")
+        "Netto kapitalinntekt",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.parse("2017-01-01"),
+        false
     ),
     KAPITALINNTEKT_SKE(
-        "Kapitalinntekt fra Skatteetaten", "KAPS", "B",
-        false, true, true, true, true, true, true, LocalDate.parse("2015-01-01"), LocalDate.MAX
+        "Kapitalinntekt fra Skatteetaten",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.parse("2015-01-01"),
+        LocalDate.MAX,
+        true
     ),
     KAPITALINNTEKT_EGNE_OPPLYSNINGER(
-        "Kapitalinntekt egne opplysninger", "KIEO", "B",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+        "Kapitalinntekt egne opplysninger",
+        InntektGruppe.KAPITALINNTEKT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
     KONTANTSTOTTE(
-        "Kontantstøtte", "KONT", "BMB",
-        true, true, true, true, false, true, false, LocalDate.MIN, LocalDate.MAX
+        "Kontantstøtte",
+        InntektGruppe.INGEN,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
     SKATTEGRUNNLAG_KORRIGERT_BARNETILLEGG(
-        "Skattegrunnlag korrigert for barnetillegg", "LIGB", "A",
-        false, true, false, false, false, true, false, LocalDate.parse("2013-01-01"), LocalDate.MAX
+        "Skattegrunnlag korrigert for barnetillegg",
+        InntektGruppe.UKJENT,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        LocalDate.parse("2013-01-01"),
+        LocalDate.MAX,
+        false
     ),
     LIGNING_SKE(
-        "Ligning fra Skatteetaten", "LIGN", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.parse("2018-01-01")
+        "Ligning fra Skatteetaten",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.parse("2018-01-01"),
+        false
     ),
     SKATTEGRUNNLAG_SKE(
-        "Skattegrunnlag fra Skatteetaten", "LIGS", "A",
-        false, true, true, true, true, true, true, LocalDate.parse("2015-01-01"), LocalDate.MAX
+        "Skattegrunnlag fra Skatteetaten",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.parse("2015-01-01"),
+        LocalDate.MAX,
+        true
     ),
-    LONN_TREKK(
-        "Lønns- og trekkoppgave", "LTA", "A",
-        false, true, true, true, true, true, true, LocalDate.parse("2015-01-01"), LocalDate.MAX
+    LØNN_TREKK(
+        "Lønns- og trekkoppgave",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.parse("2015-01-01"),
+        LocalDate.MAX,
+        true
     ),
     AINNTEKT_KORRIGERT_BARNETILLEGG(
-        "A-inntekt korrigert for barnetillegg", "LTAB", "",
-        false, true, false, false, false, true, false, LocalDate.parse("2019-01-01"), LocalDate.MAX
+        "A-inntekt korrigert for barnetillegg",
+        InntektGruppe.UKJENT,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        LocalDate.parse("2019-01-01"),
+        LocalDate.MAX,
+        false
     ),
-    LONN_SKE(
-        "Lønnsoppgave fra Skatteetaten", "LTR", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.parse("2016-01-01")
+    LØNN_SKE(
+        "Lønnsoppgave fra Skatteetaten",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.parse("2016-01-01"),
+        false
     ),
-    LONN_SKE_KORRIGERT_BARNETILLEGG(
-        "Lønnsoppgave fra Skatteetaten korrigert for barnetillegg", "LTRB", "A",
-        false, true, true, false, false, true, false, LocalDate.parse("2014-01-01"), LocalDate.MAX
+    LØNN_SKE_KORRIGERT_BARNETILLEGG(
+        "Lønnsoppgave fra Skatteetaten korrigert for barnetillegg",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        false,
+        false,
+        true,
+        false,
+        LocalDate.parse("2014-01-01"),
+        LocalDate.MAX,
+        false
     ),
-    DOKUMENTASJON_MANGLER_SKJONN(
-        "Dokumentasjon mangler (skjønn)", "MDOK", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+    DOKUMENTASJON_MANGLER_SKJØNN(
+        "Dokumentasjon mangler (skjønn)",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        false
     ),
     PENSJON(
-        "Pensjon", "PE", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+        "Pensjon",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
     PENSJON_KORRIGERT_BARNETILLEGG(
-        "Pensjon korrigert for barnetillegg", "PEB", "A",
-        false, true, false, false, false, true, false, LocalDate.parse("2015-01-01"), LocalDate.parse("2016-01-01")
+        "Pensjon korrigert for barnetillegg",
+        InntektGruppe.UKJENT,
+        true,
+        false,
+        false,
+        false,
+        true,
+        false,
+        LocalDate.parse("2015-01-01"),
+        LocalDate.parse("2016-01-01"),
+        false
     ),
     PERSONINNTEKT_EGNE_OPPLYSNINGER(
-        "Personinntekt egne opplysninger", "PIEO", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+        "Personinntekt egne opplysninger",
+        InntektGruppe.PERSONINNTEKT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
     REHABILITERINGSPENGER(
-        "Rehabiliteringspenger", "RP", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.parse("2013-01-01")
+        "Rehabiliteringspenger",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.parse("2013-01-01"),
+        false
     ),
     SAKSBEHANDLER_BEREGNET_INNTEKT(
-        "Saksbehandler beregnet inntekt", "SAK", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+        "Saksbehandlers beregnede inntekt",
+        InntektGruppe.PERSONINNTEKT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
     SYKEPENGER(
-        "Sykepenger", "SP", "A",
-        false, true, true, true, true, true, true, LocalDate.MIN, LocalDate.MAX
+        "Sykepenger",
+        InntektGruppe.UKJENT,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
     UTVIDET_BARNETRYGD(
-        "Utvidet barnetrygd", "UBAT", "BMC",
-        true, true, true, true, false, true, false, LocalDate.MIN, LocalDate.MAX
+        "Utvidet barnetrygd",
+        InntektGruppe.INGEN,
+        true,
+        true,
+        true,
+        false,
+        true,
+        false,
+        LocalDate.MIN,
+        LocalDate.MAX,
+        true
     ),
     FORDEL_SKATTEKLASSE2(
-        "Fordel skatteklasse 2", "FS2", "C",
-        false, false, true, true, false, true, false, LocalDate.MIN, LocalDate.parse("2013-01-01")
-    );
-
-    companion object {
-        fun getInntektTypeFromBelopstype(belopstype: String?): InntektType {
-            return Arrays.stream(values()).filter { inntektType -> inntektType.belopstype == belopstype }.findFirst().orElse(
-                INNTEKTSOPPLYSNINGER_ARBEIDSGIVER
-            )
-        }
-    }
-
-    object InntektTypeConstants {
-        const val SKATTEGRUNNLAG_SKE: String = "SKATTEGRUNNLAG_SKE"
-        const val KAPITALINNTEKT_SKE: String = "KAPITALINNTEKT_SKE"
-        const val LONN_TREKK: String = "LONN_TREKK"
-        const val AINNTEKT_KORRIGERT_BARNETILLEGG: String = "AINNTEKT_KORRIGERT_BARNETILLEGG"
-    }
+        "Fordel skatteklasse 2",
+        InntektGruppe.UKJENT,
+        false,
+        true,
+        true,
+        false,
+        true,
+        false,
+        LocalDate.MIN,
+        LocalDate.parse("2013-01-01"),
+        false
+    )
 }
