@@ -6,8 +6,7 @@ enum class InntektRapportering(
     val kanLeggesInnManuelt: Boolean,
     val inneholderInntektTypeListe: List<InntektType>,
     val brukesINyLøsning: Boolean,
-    val brukesIGammelLøsning: Boolean,
-    val kodeGammelLøsning: String
+    val brukesIGammelLøsning: Boolean
 ) {
 
     // Rapporteringer fra bidrag-inntekt
@@ -22,11 +21,11 @@ enum class InntektRapportering(
             InntektType.FØDSEL_ADOPSJON,
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
-            InntektType.LØNNSINNTEKT
+            InntektType.LØNNSINNTEKT,
+            InntektType.OVERGANGSSTØNAD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = false,
-        ""
+        brukesIGammelLøsning = false
     ),
 
     AINNTEKT_BEREGNET_3MND(
@@ -39,11 +38,11 @@ enum class InntektRapportering(
             InntektType.FØDSEL_ADOPSJON,
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
-            InntektType.LØNNSINNTEKT
+            InntektType.LØNNSINNTEKT,
+            InntektType.OVERGANGSSTØNAD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = false,
-        ""
+        brukesIGammelLøsning = false
     ),
 
     AINNTEKT_BEREGNET_12MND(
@@ -56,11 +55,11 @@ enum class InntektRapportering(
             InntektType.FØDSEL_ADOPSJON,
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
-            InntektType.LØNNSINNTEKT
+            InntektType.LØNNSINNTEKT,
+            InntektType.OVERGANGSSTØNAD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = false,
-        ""
+        brukesIGammelLøsning = false
     ),
 
     KAPITALINNTEKT(
@@ -71,8 +70,7 @@ enum class InntektRapportering(
             InntektType.KAPITALINNTEKT
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = false,
-        ""
+        brukesIGammelLøsning = false
     ),
 
     LIGNINGSINNTEKT(
@@ -85,11 +83,11 @@ enum class InntektRapportering(
             InntektType.FØDSEL_ADOPSJON,
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
-            InntektType.LØNNSINNTEKT
+            InntektType.LØNNSINNTEKT,
+            InntektType.OVERGANGSSTØNAD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = false,
-        ""
+        brukesIGammelLøsning = false
     ),
 
     OVERGANGSSTØNAD(
@@ -100,8 +98,7 @@ enum class InntektRapportering(
             InntektType.OVERGANGSSTØNAD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = true,
-        "EFOS"
+        brukesIGammelLøsning = true
     ),
 
     OVERGANGSSTØNAD_BEREGNET_3MND(
@@ -112,8 +109,7 @@ enum class InntektRapportering(
             InntektType.OVERGANGSSTØNAD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = false,
-        ""
+        brukesIGammelLøsning = false
     ),
 
     OVERGANGSSTØNAD_BEREGNET_12MND(
@@ -124,8 +120,7 @@ enum class InntektRapportering(
             InntektType.OVERGANGSSTØNAD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = false,
-        ""
+        brukesIGammelLøsning = false
     ),
 
     // Rapporteringer fra bidrag-grunnlag
@@ -138,8 +133,7 @@ enum class InntektRapportering(
             InntektType.KONTANTSTØTTE
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = true,
-        "KONT"
+        brukesIGammelLøsning = true
     ),
 
     SMÅBARNSTILLEGG(
@@ -150,8 +144,7 @@ enum class InntektRapportering(
             InntektType.SMÅBARNSTILLEGG
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = true,
-        "ESBT"
+        brukesIGammelLøsning = true
     ),
 
     UTVIDET_BARNETRYGD(
@@ -162,8 +155,7 @@ enum class InntektRapportering(
             InntektType.UTVIDET_BARNETRYGD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = true,
-        "UBAT"
+        brukesIGammelLøsning = true
     ),
 
     // Manuelt registrerte rapporteringer
@@ -179,11 +171,10 @@ enum class InntektRapportering(
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
-            InntektType.NÆRINGSINNTEKT
+            InntektType.OVERGANGSSTØNAD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = true,
-        "PIEO"
+        brukesIGammelLøsning = true
     ),
 
     KAPITALINNTEKT_EGNE_OPPLYSNINGER(
@@ -194,8 +185,7 @@ enum class InntektRapportering(
             InntektType.KAPITALINNTEKT
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = true,
-        "KIEO"
+        brukesIGammelLøsning = true
     ),
 
     SAKSBEHANDLER_BEREGNET_INNTEKT(
@@ -209,11 +199,10 @@ enum class InntektRapportering(
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
-            InntektType.NÆRINGSINNTEKT
+            InntektType.OVERGANGSSTØNAD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = true,
-        "SAK"
+        brukesIGammelLøsning = true
     ),
 
     LØNN_MANUELT_BEREGNET(
@@ -224,8 +213,7 @@ enum class InntektRapportering(
             InntektType.LØNNSINNTEKT
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = false,
-        ""
+        brukesIGammelLøsning = false
     ),
 
     NÆRINGSINNTEKT_MANUELT_BEREGNET(
@@ -236,8 +224,7 @@ enum class InntektRapportering(
             InntektType.NÆRINGSINNTEKT
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = false,
-        ""
+        brukesIGammelLøsning = false
     ),
 
     YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET(
@@ -249,11 +236,11 @@ enum class InntektRapportering(
             InntektType.DAGPENGER,
             InntektType.FØDSEL_ADOPSJON,
             InntektType.PENSJON,
-            InntektType.SYKEPENGER
+            InntektType.SYKEPENGER,
+            InntektType.OVERGANGSSTØNAD
         ),
         brukesINyLøsning = true,
-        brukesIGammelLøsning = false,
-        ""
+        brukesIGammelLøsning = false
     ),
 
     // Rapporteringer brukt i Bisys/BBM
@@ -264,8 +251,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "AT"
+        brukesIGammelLøsning = true
     ),
 
     AINNTEKT_KORRIGERT_BARNETILLEGG(
@@ -274,8 +260,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "LTAB"
+        brukesIGammelLøsning = true
     ),
 
     BARNETRYGD_MANUELL_VURDERING(
@@ -284,8 +269,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "BAMV"
+        brukesIGammelLøsning = true
     ),
 
     BARNS_SYKDOM(
@@ -294,8 +278,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "BS"
+        brukesIGammelLøsning = true
     ),
 
     DAGPENGER(
@@ -304,8 +287,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "AL"
+        brukesIGammelLøsning = true
     ),
 
     DOKUMENTASJON_MANGLER_SKJØNN(
@@ -314,8 +296,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "MDOK"
+        brukesIGammelLøsning = true
     ),
 
     FORDEL_SKATTEKLASSE2(
@@ -324,8 +305,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        ""
+        brukesIGammelLøsning = true
     ),
 
     FORDEL_SÆRFRADRAG_ENSLIG_FORSØRGER(
@@ -334,8 +314,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "FSEF"
+        brukesIGammelLøsning = true
     ),
 
     FØDSEL_ADOPSJON(
@@ -344,8 +323,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "FA"
+        brukesIGammelLøsning = true
     ),
 
     INNTEKTSOPPLYSNINGER_ARBEIDSGIVER(
@@ -354,8 +332,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "AG"
+        brukesIGammelLøsning = true
     ),
 
     KAPITALINNTEKT_SKE(
@@ -364,8 +341,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "KAPS"
+        brukesIGammelLøsning = true
     ),
 
     LIGNINGSOPPLYSNINGER_MANGLER(
@@ -374,8 +350,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "ILOF"
+        brukesIGammelLøsning = true
     ),
 
     LIGNING_SKE(
@@ -384,8 +359,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "LIGN"
+        brukesIGammelLøsning = true
     ),
 
     LØNN_SKE(
@@ -394,8 +368,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "LTR"
+        brukesIGammelLøsning = true
     ),
 
     LØNN_SKE_KORRIGERT_BARNETILLEGG(
@@ -404,8 +377,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "LTRB"
+        brukesIGammelLøsning = true
     ),
 
     LØNN_TREKK(
@@ -414,8 +386,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "LTA"
+        brukesIGammelLøsning = true
     ),
 
     MANGLENDE_BRUK_EVNE_SKJØNN(
@@ -424,8 +395,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "EVNE"
+        brukesIGammelLøsning = true
     ),
 
     NETTO_KAPITALINNTEKT(
@@ -434,8 +404,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "KAP"
+        brukesIGammelLøsning = true
     ),
 
     PENSJON(
@@ -444,8 +413,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "PE"
+        brukesIGammelLøsning = true
     ),
 
     PENSJON_KORRIGERT_BARNETILLEGG(
@@ -454,8 +422,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "PEB"
+        brukesIGammelLøsning = true
     ),
 
     REHABILITERINGSPENGER(
@@ -464,8 +431,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "RP"
+        brukesIGammelLøsning = true
     ),
 
     SKATTEGRUNNLAG_KORRIGERT_BARNETILLEGG(
@@ -474,8 +440,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "LIGB"
+        brukesIGammelLøsning = true
     ),
 
     SKATTEGRUNNLAG_SKE(
@@ -484,8 +449,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "LIGS"
+        brukesIGammelLøsning = true
     ),
 
     SYKEPENGER(
@@ -494,8 +458,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = emptyList(),
         brukesINyLøsning = false,
-        brukesIGammelLøsning = true,
-        "SP"
+        brukesIGammelLøsning = true
     );
 
     companion object {
