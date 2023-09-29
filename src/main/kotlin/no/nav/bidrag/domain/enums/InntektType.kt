@@ -15,7 +15,11 @@ enum class InntektType {
     SMÅBARNSTILLEGG;
 
     companion object {
-        // Lister opp alle inntektRapporteringer som inneholder en gitt inntektType
+
+        /**
+         * Extension function som returnerer en liste av inntektrapporteringer som inneholder den aktuelle inntekttypen.
+         * @return Liste av type InntektRapportering
+         */
         fun InntektType.inngårIInntektRapporteringer() =
             InntektRapportering.values().filter { this in it.inneholderInntektTypeListe }
     }

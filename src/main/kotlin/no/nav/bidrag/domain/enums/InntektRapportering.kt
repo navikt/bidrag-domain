@@ -4,9 +4,7 @@ enum class InntektRapportering(
     val visningsnavn: String,
     val hentesAutomatisk: Boolean,
     val kanLeggesInnManuelt: Boolean,
-    val inneholderInntektTypeListe: List<InntektType>,
-    val brukesINyLøsning: Boolean,
-    val brukesIGammelLøsning: Boolean
+    val inneholderInntektTypeListe: List<InntektType>
 ) {
 
     // Rapporteringer fra bidrag-inntekt
@@ -23,9 +21,7 @@ enum class InntektRapportering(
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
             InntektType.OVERGANGSSTØNAD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = false
+        )
     ),
 
     AINNTEKT_BEREGNET_3MND(
@@ -40,9 +36,7 @@ enum class InntektRapportering(
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
             InntektType.OVERGANGSSTØNAD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = false
+        )
     ),
 
     AINNTEKT_BEREGNET_12MND(
@@ -57,9 +51,7 @@ enum class InntektRapportering(
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
             InntektType.OVERGANGSSTØNAD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = false
+        )
     ),
 
     KAPITALINNTEKT(
@@ -68,9 +60,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = listOf(
             InntektType.KAPITALINNTEKT
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = false
+        )
     ),
 
     LIGNINGSINNTEKT(
@@ -85,9 +75,7 @@ enum class InntektRapportering(
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
             InntektType.OVERGANGSSTØNAD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = false
+        )
     ),
 
     OVERGANGSSTØNAD(
@@ -96,9 +84,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = listOf(
             InntektType.OVERGANGSSTØNAD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = true
+        )
     ),
 
     OVERGANGSSTØNAD_BEREGNET_3MND(
@@ -107,9 +93,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = listOf(
             InntektType.OVERGANGSSTØNAD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = false
+        )
     ),
 
     OVERGANGSSTØNAD_BEREGNET_12MND(
@@ -118,9 +102,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = listOf(
             InntektType.OVERGANGSSTØNAD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = false
+        )
     ),
 
     // Rapporteringer fra bidrag-grunnlag
@@ -131,9 +113,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
             InntektType.KONTANTSTØTTE
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = true
+        )
     ),
 
     SMÅBARNSTILLEGG(
@@ -142,9 +122,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
             InntektType.SMÅBARNSTILLEGG
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = true
+        )
     ),
 
     UTVIDET_BARNETRYGD(
@@ -153,17 +131,15 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
             InntektType.UTVIDET_BARNETRYGD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = true
+        )
     ),
 
     // Manuelt registrerte rapporteringer
 
     PERSONINNTEKT_EGNE_OPPLYSNINGER(
         visningsnavn = "Personinntekt egne opplysninger",
-        hentesAutomatisk = true,
-        kanLeggesInnManuelt = false,
+        hentesAutomatisk = false,
+        kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
             InntektType.AAP,
             InntektType.DAGPENGER,
@@ -172,9 +148,7 @@ enum class InntektRapportering(
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
             InntektType.OVERGANGSSTØNAD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = true
+        )
     ),
 
     KAPITALINNTEKT_EGNE_OPPLYSNINGER(
@@ -183,9 +157,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
             InntektType.KAPITALINNTEKT
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = true
+        )
     ),
 
     SAKSBEHANDLER_BEREGNET_INNTEKT(
@@ -200,9 +172,7 @@ enum class InntektRapportering(
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
             InntektType.OVERGANGSSTØNAD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = true
+        )
     ),
 
     LØNN_MANUELT_BEREGNET(
@@ -211,9 +181,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
             InntektType.LØNNSINNTEKT
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = false
+        )
     ),
 
     NÆRINGSINNTEKT_MANUELT_BEREGNET(
@@ -222,9 +190,7 @@ enum class InntektRapportering(
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
             InntektType.NÆRINGSINNTEKT
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = false
+        )
     ),
 
     YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET(
@@ -238,9 +204,7 @@ enum class InntektRapportering(
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
             InntektType.OVERGANGSSTØNAD
-        ),
-        brukesINyLøsning = true,
-        brukesIGammelLøsning = false
+        )
     ),
 
     // Rapporteringer brukt i Bisys/BBM
@@ -249,220 +213,177 @@ enum class InntektRapportering(
         visningsnavn = "AAP",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     AINNTEKT_KORRIGERT_BARNETILLEGG(
         visningsnavn = "A-inntekt korrigert for barnetillegg",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     BARNETRYGD_MANUELL_VURDERING(
         visningsnavn = "Barnetrygd manuell vurdering",
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     BARNS_SYKDOM(
         visningsnavn = "Barns sykdom",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     DAGPENGER(
         visningsnavn = "Dagpenger",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     DOKUMENTASJON_MANGLER_SKJØNN(
         visningsnavn = "Dokumentasjon mangler (skjønn)",
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     FORDEL_SKATTEKLASSE2(
         visningsnavn = "Fordel skatteklasse 2",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     FORDEL_SÆRFRADRAG_ENSLIG_FORSØRGER(
         visningsnavn = "Fordel særfradrag enslig forsørger",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     FØDSEL_ADOPSJON(
         visningsnavn = "Fødsels- og adopsjonspenger",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     INNTEKTSOPPLYSNINGER_ARBEIDSGIVER(
         visningsnavn = "Inntektsopplysninger fra arbeidsgiver",
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     KAPITALINNTEKT_SKE(
         visningsnavn = "Kapitalinntekt fra Skatteetaten",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     LIGNINGSOPPLYSNINGER_MANGLER(
         visningsnavn = "Ingen ligningsopplysninger finnes",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     LIGNING_SKE(
         visningsnavn = "Ligning fra Skatteetaten",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     LØNN_SKE(
         visningsnavn = "Lønnsoppgave fra Skatteetaten",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     LØNN_SKE_KORRIGERT_BARNETILLEGG(
         visningsnavn = "Lønnsoppgave fra Skatteetaten korrigert for barnetillegg",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     LØNN_TREKK(
         visningsnavn = "A-inntekt",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     MANGLENDE_BRUK_EVNE_SKJØNN(
         visningsnavn = "Manglende bruk av evne (skjønn)",
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     NETTO_KAPITALINNTEKT(
         visningsnavn = "Netto kapitalinntekt",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     PENSJON(
         visningsnavn = "Pensjon",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     PENSJON_KORRIGERT_BARNETILLEGG(
         visningsnavn = "Pensjon korrigert for barnetillegg",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     REHABILITERINGSPENGER(
         visningsnavn = "Rehabiliteringspenger",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     SKATTEGRUNNLAG_KORRIGERT_BARNETILLEGG(
         visningsnavn = "Skattegrunnlag korrigert for barnetillegg",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     SKATTEGRUNNLAG_SKE(
         visningsnavn = "Skattegrunnlag fra Skatteetaten",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     ),
 
     SYKEPENGER(
         visningsnavn = "Sykepenger",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList(),
-        brukesINyLøsning = false,
-        brukesIGammelLøsning = true
+        inneholderInntektTypeListe = emptyList()
     );
 
     companion object {
-        // Returnerer true hvis inneholderInntektTypeListe inneholder minst en lik type som tilsvarende liste i inntektRapportering2
+
+        /**
+         * Extension function som returnerer true hvis de to inntektrapporteringene som sammenlignes ikke inneholder noen like inntektstyper.
+         * @param inntektRapportering2 Verdi av type InntektRapportering som det skal sammenlignes med
+         * @return true hvis inntektsrapporteringene som sammenlignes kan brukes samtidig
+         */
         fun InntektRapportering.kanBrukesSammenMed(inntektRapportering2: InntektRapportering) =
             !(this.inneholderInntektTypeListe.any { inntektRapportering2.inneholderInntektTypeListe.contains(it) })
     }
