@@ -93,15 +93,21 @@ class InntektTypeTest {
         )
 
         InntektType.KONTANTSTØTTE.inngårIInntektRapporteringer() shouldBe listOf(
-            InntektRapportering.KONTANTSTØTTE
+            InntektRapportering.KONTANTSTØTTE,
+            InntektRapportering.KONTANTSTØTTE_BEREGNET_3MND,
+            InntektRapportering.KONTANTSTØTTE_BEREGNET_12MND
         )
 
         InntektType.UTVIDET_BARNETRYGD.inngårIInntektRapporteringer() shouldBe listOf(
-            InntektRapportering.UTVIDET_BARNETRYGD
+            InntektRapportering.UTVIDET_BARNETRYGD,
+            InntektRapportering.UTVIDET_BARNETRYGD_BEREGNET_3MND,
+            InntektRapportering.UTVIDET_BARNETRYGD_BEREGNET_12MND
         )
 
         InntektType.SMÅBARNSTILLEGG.inngårIInntektRapporteringer() shouldBe listOf(
-            InntektRapportering.SMÅBARNSTILLEGG
+            InntektRapportering.SMÅBARNSTILLEGG,
+            InntektRapportering.SMÅBARNSTILLEGG_BEREGNET_3MND,
+            InntektRapportering.SMÅBARNSTILLEGG_BEREGNET_12MND
         )
     }
 }
