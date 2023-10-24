@@ -78,55 +78,10 @@ enum class InntektRapportering(
         )
     ),
 
-    OVERGANGSSTØNAD(
-        visningsnavn = "Overgangsstønad",
-        hentesAutomatisk = true,
-        kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = listOf(
-            InntektType.OVERGANGSSTØNAD
-        )
-    ),
-
-    OVERGANGSSTØNAD_BEREGNET_3MND(
-        visningsnavn = "Overgangsstønad siste 3 mnd",
-        hentesAutomatisk = true,
-        kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = listOf(
-            InntektType.OVERGANGSSTØNAD
-        )
-    ),
-
-    OVERGANGSSTØNAD_BEREGNET_12MND(
-        visningsnavn = "Overgangsstønad siste 12 mnd",
-        hentesAutomatisk = true,
-        kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = listOf(
-            InntektType.OVERGANGSSTØNAD
-        )
-    ),
-
     KONTANTSTØTTE(
         visningsnavn = "Kontantstøtte",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = listOf(
-            InntektType.KONTANTSTØTTE
-        )
-    ),
-
-    KONTANTSTØTTE_BEREGNET_3MND(
-        visningsnavn = "Kontantstøtte siste 3 mnd",
-        hentesAutomatisk = true,
-        kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = listOf(
-            InntektType.KONTANTSTØTTE
-        )
-    ),
-
-    KONTANTSTØTTE_BEREGNET_12MND(
-        visningsnavn = "Kontantstøtte siste 12 mnd",
-        hentesAutomatisk = true,
-        kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = listOf(
             InntektType.KONTANTSTØTTE
         )
@@ -141,46 +96,10 @@ enum class InntektRapportering(
         )
     ),
 
-    SMÅBARNSTILLEGG_BEREGNET_3MND(
-        visningsnavn = "Småbarnstillegg siste 3 mnd",
-        hentesAutomatisk = true,
-        kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = listOf(
-            InntektType.SMÅBARNSTILLEGG
-        )
-    ),
-
-    SMÅBARNSTILLEGG_BEREGNET_12MND(
-        visningsnavn = "Småbarnstillegg siste 12 mnd",
-        hentesAutomatisk = true,
-        kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = listOf(
-            InntektType.SMÅBARNSTILLEGG
-        )
-    ),
-
     UTVIDET_BARNETRYGD(
         visningsnavn = "Utvidet barnetrygd",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = listOf(
-            InntektType.UTVIDET_BARNETRYGD
-        )
-    ),
-
-    UTVIDET_BARNETRYGD_BEREGNET_3MND(
-        visningsnavn = "Utvidet barnetrygd siste 3 mnd",
-        hentesAutomatisk = true,
-        kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = listOf(
-            InntektType.UTVIDET_BARNETRYGD
-        )
-    ),
-
-    UTVIDET_BARNETRYGD_BEREGNET_12MND(
-        visningsnavn = "Utvidet barnetrygd siste 12 mnd",
-        hentesAutomatisk = true,
-        kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = listOf(
             InntektType.UTVIDET_BARNETRYGD
         )
