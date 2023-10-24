@@ -84,9 +84,6 @@ class InntektTypeTest {
             InntektRapportering.AINNTEKT_BEREGNET_3MND,
             InntektRapportering.AINNTEKT_BEREGNET_12MND,
             InntektRapportering.LIGNINGSINNTEKT,
-            InntektRapportering.OVERGANGSSTØNAD,
-            InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND,
-            InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND,
             InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER,
             InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT,
             InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET
@@ -94,20 +91,14 @@ class InntektTypeTest {
 
         InntektType.KONTANTSTØTTE.inngårIInntektRapporteringer() shouldBe listOf(
             InntektRapportering.KONTANTSTØTTE,
-            InntektRapportering.KONTANTSTØTTE_BEREGNET_3MND,
-            InntektRapportering.KONTANTSTØTTE_BEREGNET_12MND
         )
 
         InntektType.UTVIDET_BARNETRYGD.inngårIInntektRapporteringer() shouldBe listOf(
             InntektRapportering.UTVIDET_BARNETRYGD,
-            InntektRapportering.UTVIDET_BARNETRYGD_BEREGNET_3MND,
-            InntektRapportering.UTVIDET_BARNETRYGD_BEREGNET_12MND
         )
 
         InntektType.SMÅBARNSTILLEGG.inngårIInntektRapporteringer() shouldBe listOf(
             InntektRapportering.SMÅBARNSTILLEGG,
-            InntektRapportering.SMÅBARNSTILLEGG_BEREGNET_3MND,
-            InntektRapportering.SMÅBARNSTILLEGG_BEREGNET_12MND
         )
     }
 }

@@ -13,9 +13,6 @@ class InntektRapporteringTest {
         InntektRapportering.AINNTEKT.kanBrukesSammenMed(InntektRapportering.AINNTEKT_BEREGNET_12MND) shouldBe false
         InntektRapportering.AINNTEKT.kanBrukesSammenMed(InntektRapportering.KAPITALINNTEKT) shouldBe true
         InntektRapportering.AINNTEKT.kanBrukesSammenMed(InntektRapportering.LIGNINGSINNTEKT) shouldBe false
-        InntektRapportering.AINNTEKT.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD) shouldBe false
-        InntektRapportering.AINNTEKT.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND) shouldBe false
-        InntektRapportering.AINNTEKT.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND) shouldBe false
         InntektRapportering.AINNTEKT.kanBrukesSammenMed(InntektRapportering.KONTANTSTØTTE) shouldBe true
         InntektRapportering.AINNTEKT.kanBrukesSammenMed(InntektRapportering.SMÅBARNSTILLEGG) shouldBe true
         InntektRapportering.AINNTEKT.kanBrukesSammenMed(InntektRapportering.UTVIDET_BARNETRYGD) shouldBe true
@@ -29,9 +26,6 @@ class InntektRapporteringTest {
         InntektRapportering.AINNTEKT_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.AINNTEKT_BEREGNET_12MND) shouldBe false
         InntektRapportering.AINNTEKT_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.KAPITALINNTEKT) shouldBe true
         InntektRapportering.AINNTEKT_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.LIGNINGSINNTEKT) shouldBe false
-        InntektRapportering.AINNTEKT_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD) shouldBe false
-        InntektRapportering.AINNTEKT_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND) shouldBe false
-        InntektRapportering.AINNTEKT_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND) shouldBe false
         InntektRapportering.AINNTEKT_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.KONTANTSTØTTE) shouldBe true
         InntektRapportering.AINNTEKT_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.SMÅBARNSTILLEGG) shouldBe true
         InntektRapportering.AINNTEKT_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.UTVIDET_BARNETRYGD) shouldBe true
@@ -44,9 +38,6 @@ class InntektRapporteringTest {
 
         InntektRapportering.AINNTEKT_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.KAPITALINNTEKT) shouldBe true
         InntektRapportering.AINNTEKT_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.LIGNINGSINNTEKT) shouldBe false
-        InntektRapportering.AINNTEKT_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD) shouldBe false
-        InntektRapportering.AINNTEKT_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND) shouldBe false
-        InntektRapportering.AINNTEKT_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND) shouldBe false
         InntektRapportering.AINNTEKT_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.KONTANTSTØTTE) shouldBe true
         InntektRapportering.AINNTEKT_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.SMÅBARNSTILLEGG) shouldBe true
         InntektRapportering.AINNTEKT_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.UTVIDET_BARNETRYGD) shouldBe true
@@ -58,9 +49,6 @@ class InntektRapporteringTest {
         InntektRapportering.AINNTEKT_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET) shouldBe false
 
         InntektRapportering.KAPITALINNTEKT.kanBrukesSammenMed(InntektRapportering.LIGNINGSINNTEKT) shouldBe true
-        InntektRapportering.KAPITALINNTEKT.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD) shouldBe true
-        InntektRapportering.KAPITALINNTEKT.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND) shouldBe true
-        InntektRapportering.KAPITALINNTEKT.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND) shouldBe true
         InntektRapportering.KAPITALINNTEKT.kanBrukesSammenMed(InntektRapportering.KONTANTSTØTTE) shouldBe true
         InntektRapportering.KAPITALINNTEKT.kanBrukesSammenMed(InntektRapportering.SMÅBARNSTILLEGG) shouldBe true
         InntektRapportering.KAPITALINNTEKT.kanBrukesSammenMed(InntektRapportering.UTVIDET_BARNETRYGD) shouldBe true
@@ -71,9 +59,6 @@ class InntektRapporteringTest {
         InntektRapportering.KAPITALINNTEKT.kanBrukesSammenMed(InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT) shouldBe true
         InntektRapportering.KAPITALINNTEKT.kanBrukesSammenMed(InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET) shouldBe true
 
-        InntektRapportering.LIGNINGSINNTEKT.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD) shouldBe false
-        InntektRapportering.LIGNINGSINNTEKT.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND) shouldBe false
-        InntektRapportering.LIGNINGSINNTEKT.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND) shouldBe false
         InntektRapportering.LIGNINGSINNTEKT.kanBrukesSammenMed(InntektRapportering.KONTANTSTØTTE) shouldBe true
         InntektRapportering.LIGNINGSINNTEKT.kanBrukesSammenMed(InntektRapportering.SMÅBARNSTILLEGG) shouldBe true
         InntektRapportering.LIGNINGSINNTEKT.kanBrukesSammenMed(InntektRapportering.UTVIDET_BARNETRYGD) shouldBe true
@@ -83,39 +68,6 @@ class InntektRapporteringTest {
         InntektRapportering.LIGNINGSINNTEKT.kanBrukesSammenMed(InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER) shouldBe false
         InntektRapportering.LIGNINGSINNTEKT.kanBrukesSammenMed(InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT) shouldBe false
         InntektRapportering.LIGNINGSINNTEKT.kanBrukesSammenMed(InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET) shouldBe false
-
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND) shouldBe false
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND) shouldBe false
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.KONTANTSTØTTE) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.SMÅBARNSTILLEGG) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.UTVIDET_BARNETRYGD) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.LØNN_MANUELT_BEREGNET) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.KAPITALINNTEKT_EGNE_OPPLYSNINGER) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.NÆRINGSINNTEKT_MANUELT_BEREGNET) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER) shouldBe false
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT) shouldBe false
-        InntektRapportering.OVERGANGSSTØNAD.kanBrukesSammenMed(InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET) shouldBe false
-
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND) shouldBe false
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.KONTANTSTØTTE) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.SMÅBARNSTILLEGG) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.UTVIDET_BARNETRYGD) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.LØNN_MANUELT_BEREGNET) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.KAPITALINNTEKT_EGNE_OPPLYSNINGER) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.NÆRINGSINNTEKT_MANUELT_BEREGNET) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER) shouldBe false
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT) shouldBe false
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_3MND.kanBrukesSammenMed(InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET) shouldBe false
-
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.KONTANTSTØTTE) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.SMÅBARNSTILLEGG) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.UTVIDET_BARNETRYGD) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.LØNN_MANUELT_BEREGNET) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.KAPITALINNTEKT_EGNE_OPPLYSNINGER) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.NÆRINGSINNTEKT_MANUELT_BEREGNET) shouldBe true
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER) shouldBe false
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT) shouldBe false
-        InntektRapportering.OVERGANGSSTØNAD_BEREGNET_12MND.kanBrukesSammenMed(InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET) shouldBe false
 
         InntektRapportering.KONTANTSTØTTE.kanBrukesSammenMed(InntektRapportering.SMÅBARNSTILLEGG) shouldBe true
         InntektRapportering.KONTANTSTØTTE.kanBrukesSammenMed(InntektRapportering.UTVIDET_BARNETRYGD) shouldBe true
