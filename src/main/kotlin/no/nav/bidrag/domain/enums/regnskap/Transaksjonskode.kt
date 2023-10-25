@@ -21,7 +21,8 @@ enum class Transaksjonskode(val korreksjonskode: String?, val negativtBeløp: Bo
     I1(null, true), // Motregning
     K1(null, true), // Ettergivelse
     K2(null, true), // Direkte oppgjør (innbetalt beløp)
-    K3(null, true); // Tilbakekreving ettergivelse
+    K3(null, true), // Tilbakekreving ettergivelse
+    ;
 
     companion object {
         fun hentTransaksjonskodeForType(type: String): Transaksjonskode {

@@ -32,7 +32,7 @@ internal class PersonIdentTest {
             SyntetiskBruker("05840399895", "45840375084", "Kvinne", LocalDate.of(2003, 4, 5)),
             SyntetiskBruker("12829499914", "52829400197", "Mann", LocalDate.of(1994, 2, 12)),
             SyntetiskBruker("12905299938", "52905200100", "Mann", LocalDate.of(1952, 10, 12)),
-            SyntetiskBruker("21883649874", "61883600222", "Kvinne", LocalDate.of(1936, 8, 21))
+            SyntetiskBruker("21883649874", "61883600222", "Kvinne", LocalDate.of(1936, 8, 21)),
         )
 
         listeAvBrukere.forEach {

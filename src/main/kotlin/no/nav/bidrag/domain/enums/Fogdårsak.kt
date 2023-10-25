@@ -6,7 +6,7 @@ enum class Fogdårsak(
     val beskrivelse: String,
     val gyldig: Boolean,
     val tilgangstype: Tilgangstype,
-    val tilgangsrolle: String
+    val tilgangsrolle: String,
 ) {
     ADRE("Adresseendring", true, Tilgangstype.EIER, "Batch"),
     AUTO("Bidragsevnesprekk", true, Tilgangstype.MIDL, "Alle"),
@@ -20,5 +20,5 @@ enum class Fogdårsak(
     MAKO("Ko-fogd", true, Tilgangstype.MIDL, "Alle"),
     MAUT("Utlandssak", true, Tilgangstype.MIDL, "Alle"),
     MOT("Motregning", true, Tilgangstype.MIDL, "Alle"),
-    OORG("Omorganisering", true, Tilgangstype.EIER, "Batch");
+    OORG("Omorganisering", true, Tilgangstype.EIER, "Batch"),
 }

@@ -7,5 +7,5 @@ enum class BostatusKode {
 
     // Bidragsevne (BP særtilskudd/bidrag)
     MED_ANDRE,
-    ALENE
+    ALENE,
 }

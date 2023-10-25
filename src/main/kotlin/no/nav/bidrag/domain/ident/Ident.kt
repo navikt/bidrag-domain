@@ -42,7 +42,7 @@ enum class Identtype {
     PersonIdent, // Fødselsnummer, D-nummer, Nav-syntetisk, Skatt-syntetisk
     Organisasjonsnummer,
     SamhandlerId,
-    Ukjent
+    Ukjent,
 }
 
 class IdentReadingConverter : Converter<String, Ident> {

@@ -7,5 +7,5 @@ enum class Bidragssakstatus(val beskrivelse: String) {
     IN("Inaktiv"),
     NY("Journalsak"),
     SA("Sanert"),
-    SO("Åpensøknad")
+    SO("Åpensøknad"),
 }

@@ -21,8 +21,8 @@ internal class MånedsperiodeTest {
             JavaTimeModule()
                 .addDeserializer(
                     YearMonth::class.java,
-                    YearMonthDeserializer(DateTimeFormatter.ofPattern("u-MM")) // Denne trengs for å parse år over 9999 riktig.
-                )
+                    YearMonthDeserializer(DateTimeFormatter.ofPattern("u-MM")), // Denne trengs for å parse år over 9999 riktig.
+                ),
         )
         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 
@@ -167,7 +167,7 @@ internal class MånedsperiodeTest {
         val periode2 = Datoperiode(YearMonth.of(2018, 1), YearMonth.of(2018, 11))
 
         shouldThrowMessage(
-            "Kan ikke lage union av perioder som $periode1 og $periode2 som ikke overlapper eller direkte følger hverandre."
+            "Kan ikke lage union av perioder som $periode1 og $periode2 som ikke overlapper eller direkte følger hverandre.",
         ) {
             periode1 union periode2
         }

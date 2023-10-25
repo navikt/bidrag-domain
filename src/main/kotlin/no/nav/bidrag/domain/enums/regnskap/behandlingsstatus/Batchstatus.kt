@@ -4,5 +4,5 @@ enum class Batchstatus {
     Failed,
     Processing,
     Done,
-    DoneWithWarnings
+    DoneWithWarnings,
 }

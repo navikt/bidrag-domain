@@ -37,7 +37,7 @@ sealed class Periode<T> : Comparable<Periode<T>> where T : Comparable<T>, T : Te
         } else {
             lagPeriode(
                 maxOf(fom, annen.fom),
-                if (tom == null && annen.tom == null) null else minOf(tomEllerMax(), annen.tomEllerMax())
+                if (tom == null && annen.tom == null) null else minOf(tomEllerMax(), annen.tomEllerMax()),
             )
         }
     }
@@ -46,7 +46,7 @@ sealed class Periode<T> : Comparable<Periode<T>> where T : Comparable<T>, T : Te
         return if (overlapper(annen) || this.påfølgesAv(annen) || annen.påfølgesAv(this)) {
             lagPeriode(
                 minOf(fom, annen.fom),
-                if (tom == null || annen.tom == null) null else maxOf(tomEllerMax(), annen.tomEllerMax())
+                if (tom == null || annen.tom == null) null else maxOf(tomEllerMax(), annen.tomEllerMax()),
             )
         } else {
             error("Kan ikke lage union av perioder som $this og $annen som ikke overlapper eller direkte følger hverandre.")

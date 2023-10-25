@@ -11,7 +11,8 @@ enum class Konvensjon(private val beskrivelse: String) {
     NY("New York"),
     US("USA-avtalen"),
     H73("Haag 1973"),
-    INGEN("Ingen");
+    INGEN("Ingen"),
+    ;
 
     override fun toString(): String {
         return beskrivelse

@@ -7,5 +7,5 @@ enum class SjablonNavn(val navn: String) {
     MAKS_FRADRAG("MaksFradrag"),
     MAKS_TILSYN("MaksTilsyn"),
     SAMVAERSFRADRAG("Samværsfradrag"),
-    TRINNVIS_SKATTESATS("TrinnvisSkattesats")
+    TRINNVIS_SKATTESATS("TrinnvisSkattesats"),
 }

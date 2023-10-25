@@ -10,5 +10,5 @@ enum class VedtakType {
     INNKREVING,
     KLAGE,
     ENDRING,
-    ENDRING_MOTTAKER
+    ENDRING_MOTTAKER,
 }

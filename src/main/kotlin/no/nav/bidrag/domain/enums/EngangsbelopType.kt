@@ -8,5 +8,5 @@ enum class EngangsbelopType {
     GEBYR_SKYLDNER,
     INNKREVING_GJELD,
     SAERTILSKUDD,
-    TILBAKEKREVING
+    TILBAKEKREVING,
 }

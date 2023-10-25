@@ -6,5 +6,5 @@ enum class SjablonNokkelNavn(val navn: String) {
     BOSTATUS("Bostatus"),
     ALDER_TOM("AlderTOM"),
     ANTALL_BARN_TOM("AntallBarnTOM"),
-    SAMVAERSKLASSE("Samværsklasse")
+    SAMVAERSKLASSE("Samværsklasse"),
 }

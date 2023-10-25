@@ -9,5 +9,5 @@ enum class Diskresjonskode {
     MILI,
     PEND,
     SVAL,
-    P19;
+    P19,
 }
