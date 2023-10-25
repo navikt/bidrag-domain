@@ -12,5 +12,5 @@ enum class Sivilstandstype {
     SKILT,
     SKILT_PARTNER,
     UGIFT,
-    UOPPGITT
+    UOPPGITT,
 }

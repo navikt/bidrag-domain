@@ -104,7 +104,8 @@ enum class Sakshendelsestype(private val beskrivelse: String, val gyldig: Boolea
     VEKU("Vedtak kommune", true),
     VEMI("Vedtak Midlertidig", true),
     VEUM("Vedtak Utl.myndigh.", true),
-    VEVE("Vedtak Verge", true);
+    VEVE("Vedtak Verge", true),
+    ;
 
     override fun toString(): String {
         return beskrivelse

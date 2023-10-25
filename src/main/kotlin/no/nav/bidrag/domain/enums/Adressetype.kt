@@ -6,5 +6,5 @@ enum class Adressetype {
     BOSTEDSADRESSE,
     KONTAKTADRESSE,
     OPPHOLDSADRESSE,
-    DELT_BOSTED
+    DELT_BOSTED,
 }

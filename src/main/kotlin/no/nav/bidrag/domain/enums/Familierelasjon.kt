@@ -6,5 +6,5 @@ enum class Familierelasjon {
     BARN,
     FAR,
     MEDMOR,
-    MOR
+    MOR,
 }

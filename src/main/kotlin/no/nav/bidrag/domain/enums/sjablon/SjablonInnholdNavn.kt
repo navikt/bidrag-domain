@@ -12,5 +12,5 @@ enum class SjablonInnholdNavn(val navn: String) {
     FRADRAG_BELOP("FradragBeløp"),
     SJABLON_VERDI("SjablonVerdi"),
     INNTEKTSGRENSE_BELOP("InntektsgrenseBeløp"),
-    SKATTESATS_PROSENT("SkattesatsProsent")
+    SKATTESATS_PROSENT("SkattesatsProsent"),
 }

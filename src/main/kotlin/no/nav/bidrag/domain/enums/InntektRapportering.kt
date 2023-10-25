@@ -4,7 +4,7 @@ enum class InntektRapportering(
     val visningsnavn: String,
     val hentesAutomatisk: Boolean,
     val kanLeggesInnManuelt: Boolean,
-    val inneholderInntektTypeListe: List<InntektType>
+    val inneholderInntektTypeListe: List<InntektType>,
 ) {
 
     // Rapporteringer fra bidrag-inntekt
@@ -20,8 +20,8 @@ enum class InntektRapportering(
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
-            InntektType.OVERGANGSSTØNAD
-        )
+            InntektType.OVERGANGSSTØNAD,
+        ),
     ),
 
     AINNTEKT_BEREGNET_3MND(
@@ -35,8 +35,8 @@ enum class InntektRapportering(
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
-            InntektType.OVERGANGSSTØNAD
-        )
+            InntektType.OVERGANGSSTØNAD,
+        ),
     ),
 
     AINNTEKT_BEREGNET_12MND(
@@ -50,8 +50,8 @@ enum class InntektRapportering(
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
-            InntektType.OVERGANGSSTØNAD
-        )
+            InntektType.OVERGANGSSTØNAD,
+        ),
     ),
 
     KAPITALINNTEKT(
@@ -59,8 +59,8 @@ enum class InntektRapportering(
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
         inneholderInntektTypeListe = listOf(
-            InntektType.KAPITALINNTEKT
-        )
+            InntektType.KAPITALINNTEKT,
+        ),
     ),
 
     LIGNINGSINNTEKT(
@@ -74,8 +74,8 @@ enum class InntektRapportering(
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
-            InntektType.OVERGANGSSTØNAD
-        )
+            InntektType.OVERGANGSSTØNAD,
+        ),
     ),
 
     KONTANTSTØTTE(
@@ -83,8 +83,8 @@ enum class InntektRapportering(
         hentesAutomatisk = true,
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
-            InntektType.KONTANTSTØTTE
-        )
+            InntektType.KONTANTSTØTTE,
+        ),
     ),
 
     SMÅBARNSTILLEGG(
@@ -92,8 +92,8 @@ enum class InntektRapportering(
         hentesAutomatisk = true,
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
-            InntektType.SMÅBARNSTILLEGG
-        )
+            InntektType.SMÅBARNSTILLEGG,
+        ),
     ),
 
     UTVIDET_BARNETRYGD(
@@ -101,8 +101,8 @@ enum class InntektRapportering(
         hentesAutomatisk = true,
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
-            InntektType.UTVIDET_BARNETRYGD
-        )
+            InntektType.UTVIDET_BARNETRYGD,
+        ),
     ),
 
     // Manuelt registrerte rapporteringer
@@ -118,8 +118,8 @@ enum class InntektRapportering(
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
-            InntektType.OVERGANGSSTØNAD
-        )
+            InntektType.OVERGANGSSTØNAD,
+        ),
     ),
 
     KAPITALINNTEKT_EGNE_OPPLYSNINGER(
@@ -127,8 +127,8 @@ enum class InntektRapportering(
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
-            InntektType.KAPITALINNTEKT
-        )
+            InntektType.KAPITALINNTEKT,
+        ),
     ),
 
     SAKSBEHANDLER_BEREGNET_INNTEKT(
@@ -142,8 +142,8 @@ enum class InntektRapportering(
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
             InntektType.LØNNSINNTEKT,
-            InntektType.OVERGANGSSTØNAD
-        )
+            InntektType.OVERGANGSSTØNAD,
+        ),
     ),
 
     LØNN_MANUELT_BEREGNET(
@@ -151,8 +151,8 @@ enum class InntektRapportering(
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
-            InntektType.LØNNSINNTEKT
-        )
+            InntektType.LØNNSINNTEKT,
+        ),
     ),
 
     NÆRINGSINNTEKT_MANUELT_BEREGNET(
@@ -160,8 +160,8 @@ enum class InntektRapportering(
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
         inneholderInntektTypeListe = listOf(
-            InntektType.NÆRINGSINNTEKT
-        )
+            InntektType.NÆRINGSINNTEKT,
+        ),
     ),
 
     YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET(
@@ -174,8 +174,8 @@ enum class InntektRapportering(
             InntektType.FØDSEL_ADOPSJON,
             InntektType.PENSJON,
             InntektType.SYKEPENGER,
-            InntektType.OVERGANGSSTØNAD
-        )
+            InntektType.OVERGANGSSTØNAD,
+        ),
     ),
 
     // Rapporteringer brukt i Bisys/BBM
@@ -184,169 +184,170 @@ enum class InntektRapportering(
         visningsnavn = "AAP",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     AINNTEKT_KORRIGERT_BARNETILLEGG(
         visningsnavn = "A-inntekt korrigert for barnetillegg",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     BARNETRYGD_MANUELL_VURDERING(
         visningsnavn = "Barnetrygd manuell vurdering",
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     BARNS_SYKDOM(
         visningsnavn = "Barns sykdom",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     DAGPENGER(
         visningsnavn = "Dagpenger",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     DOKUMENTASJON_MANGLER_SKJØNN(
         visningsnavn = "Dokumentasjon mangler (skjønn)",
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     FORDEL_SKATTEKLASSE2(
         visningsnavn = "Fordel skatteklasse 2",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     FORDEL_SÆRFRADRAG_ENSLIG_FORSØRGER(
         visningsnavn = "Fordel særfradrag enslig forsørger",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     FØDSEL_ADOPSJON(
         visningsnavn = "Fødsels- og adopsjonspenger",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     INNTEKTSOPPLYSNINGER_ARBEIDSGIVER(
         visningsnavn = "Inntektsopplysninger fra arbeidsgiver",
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     KAPITALINNTEKT_SKE(
         visningsnavn = "Kapitalinntekt fra Skatteetaten",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     LIGNINGSOPPLYSNINGER_MANGLER(
         visningsnavn = "Ingen ligningsopplysninger finnes",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     LIGNING_SKE(
         visningsnavn = "Ligning fra Skatteetaten",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     LØNN_SKE(
         visningsnavn = "Lønnsoppgave fra Skatteetaten",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     LØNN_SKE_KORRIGERT_BARNETILLEGG(
         visningsnavn = "Lønnsoppgave fra Skatteetaten korrigert for barnetillegg",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     LØNN_TREKK(
         visningsnavn = "A-inntekt",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     MANGLENDE_BRUK_EVNE_SKJØNN(
         visningsnavn = "Manglende bruk av evne (skjønn)",
         hentesAutomatisk = false,
         kanLeggesInnManuelt = true,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     NETTO_KAPITALINNTEKT(
         visningsnavn = "Netto kapitalinntekt",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     PENSJON(
         visningsnavn = "Pensjon",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     PENSJON_KORRIGERT_BARNETILLEGG(
         visningsnavn = "Pensjon korrigert for barnetillegg",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     REHABILITERINGSPENGER(
         visningsnavn = "Rehabiliteringspenger",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     SKATTEGRUNNLAG_KORRIGERT_BARNETILLEGG(
         visningsnavn = "Skattegrunnlag korrigert for barnetillegg",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     SKATTEGRUNNLAG_SKE(
         visningsnavn = "Skattegrunnlag fra Skatteetaten",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
+        inneholderInntektTypeListe = emptyList(),
     ),
 
     SYKEPENGER(
         visningsnavn = "Sykepenger",
         hentesAutomatisk = true,
         kanLeggesInnManuelt = false,
-        inneholderInntektTypeListe = emptyList()
-    );
+        inneholderInntektTypeListe = emptyList(),
+    ),
+    ;
 
     companion object {
 

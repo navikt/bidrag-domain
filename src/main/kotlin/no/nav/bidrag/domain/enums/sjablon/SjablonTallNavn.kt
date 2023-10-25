@@ -10,7 +10,7 @@ enum class SjablonTallNavn(
     val barnebidrag: Boolean,
     val forskudd: Boolean,
     val bpAndelSaertilskudd: Boolean,
-    val saertilskudd: Boolean
+    val saertilskudd: Boolean,
 ) {
     ORDINAER_BARNETRYGD_BELOP("OrdinærBarnetrygdBeløp", "0001", false, false, true, false, false, false, false, false),
     ORDINAER_SMAABARNSTILLEGG_BELOP("OrdinærSmåbarnstilleggBeløp", "0002", false, false, false, false, false, false, false, false),
@@ -54,7 +54,8 @@ enum class SjablonTallNavn(
     SKATTESATS_ALMINNELIG_INNTEKT_PROSENT("SkattesatsAlminneligInntektProsent", "0040", true, false, false, false, false, false, false, false),
     FORHOYET_BARNETRYGD_BELOP("ForhøyetBarnetrygdBeløp", "0041", false, false, true, false, false, false, false, false),
     FASTSETTELSESGEBYR_BELOP("FastsettelsesgebyrBeløp", "0100", false, false, false, false, false, false, false, false),
-    DUMMY("Dummy", "9999", false, false, false, false, false, false, false, false);
+    DUMMY("Dummy", "9999", false, false, false, false, false, false, false, false),
+    ;
 
     companion object {
         fun from(search: String): SjablonTallNavn = requireNotNull(values().find { it.navn == search }) { DUMMY }

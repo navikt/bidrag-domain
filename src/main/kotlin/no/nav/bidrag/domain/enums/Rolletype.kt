@@ -24,5 +24,5 @@ enum class Rolletype {
 
     @JsonProperty("RM")
     @JsonAlias("REELMOTTAKER")
-    REELMOTTAKER;
+    REELMOTTAKER,
 }

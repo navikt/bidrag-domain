@@ -12,7 +12,8 @@ enum class InntektType {
     OVERGANGSSTØNAD,
     KONTANTSTØTTE,
     UTVIDET_BARNETRYGD,
-    SMÅBARNSTILLEGG;
+    SMÅBARNSTILLEGG,
+    ;
 
     companion object {
 

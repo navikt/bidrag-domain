@@ -4,5 +4,5 @@ enum class Søknadstype {
     IR,
     FABM,
     FABP,
-    EN
+    EN,
 }

@@ -17,7 +17,7 @@ class InntektTypeTest {
             InntektRapportering.LIGNINGSINNTEKT,
             InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER,
             InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT,
-            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET
+            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET,
         )
 
         InntektType.DAGPENGER.inngårIInntektRapporteringer() shouldBe listOf(
@@ -27,7 +27,7 @@ class InntektTypeTest {
             InntektRapportering.LIGNINGSINNTEKT,
             InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER,
             InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT,
-            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET
+            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET,
         )
 
         InntektType.FØDSEL_ADOPSJON.inngårIInntektRapporteringer() shouldBe listOf(
@@ -37,7 +37,7 @@ class InntektTypeTest {
             InntektRapportering.LIGNINGSINNTEKT,
             InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER,
             InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT,
-            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET
+            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET,
         )
 
         InntektType.PENSJON.inngårIInntektRapporteringer() shouldBe listOf(
@@ -47,7 +47,7 @@ class InntektTypeTest {
             InntektRapportering.LIGNINGSINNTEKT,
             InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER,
             InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT,
-            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET
+            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET,
         )
 
         InntektType.SYKEPENGER.inngårIInntektRapporteringer() shouldBe listOf(
@@ -57,7 +57,7 @@ class InntektTypeTest {
             InntektRapportering.LIGNINGSINNTEKT,
             InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER,
             InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT,
-            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET
+            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET,
         )
 
         InntektType.LØNNSINNTEKT.inngårIInntektRapporteringer() shouldBe listOf(
@@ -67,16 +67,16 @@ class InntektTypeTest {
             InntektRapportering.LIGNINGSINNTEKT,
             InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER,
             InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT,
-            InntektRapportering.LØNN_MANUELT_BEREGNET
+            InntektRapportering.LØNN_MANUELT_BEREGNET,
         )
 
         InntektType.NÆRINGSINNTEKT.inngårIInntektRapporteringer() shouldBe listOf(
-            InntektRapportering.NÆRINGSINNTEKT_MANUELT_BEREGNET
+            InntektRapportering.NÆRINGSINNTEKT_MANUELT_BEREGNET,
         )
 
         InntektType.KAPITALINNTEKT.inngårIInntektRapporteringer() shouldBe listOf(
             InntektRapportering.KAPITALINNTEKT,
-            InntektRapportering.KAPITALINNTEKT_EGNE_OPPLYSNINGER
+            InntektRapportering.KAPITALINNTEKT_EGNE_OPPLYSNINGER,
         )
 
         InntektType.OVERGANGSSTØNAD.inngårIInntektRapporteringer() shouldBe listOf(
@@ -86,7 +86,7 @@ class InntektTypeTest {
             InntektRapportering.LIGNINGSINNTEKT,
             InntektRapportering.PERSONINNTEKT_EGNE_OPPLYSNINGER,
             InntektRapportering.SAKSBEHANDLER_BEREGNET_INNTEKT,
-            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET
+            InntektRapportering.YTELSE_FRA_OFFENTLIG_MANUELT_BEREGNET,
         )
 
         InntektType.KONTANTSTØTTE.inngårIInntektRapporteringer() shouldBe listOf(

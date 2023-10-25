@@ -14,5 +14,5 @@ enum class ResultatKodeBarnebidrag {
     FORHOLDSMESSIG_FORDELING_BIDRAGSBELOP_ENDRET, // Beregning av forholdsmessig fordeling er utført og det er beregnet nytt bidragsbeløp
     FORHOLDSMESSIG_FORDELING_INGEN_ENDRING, // Beregning av forholdsmessig fordeling er utført og det er ingen endringer på bidragsbeløp
     INGEN_EVNE, // BP har 0.- i bidragsevne, bidrag satt til 0.-
-    KOSTNADSBEREGNET_BIDRAG // Kostnadsberegnet bidrag
+    KOSTNADSBEREGNET_BIDRAG, // Kostnadsberegnet bidrag
 }
