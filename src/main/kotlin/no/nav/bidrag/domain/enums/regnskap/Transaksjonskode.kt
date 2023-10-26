@@ -1,7 +1,7 @@
 package no.nav.bidrag.domain.enums.regnskap
 
-import no.nav.bidrag.domain.enums.EngangsbelopType
-import no.nav.bidrag.domain.enums.StonadType
+import no.nav.bidrag.domain.enums.EngangsbeløpType
+import no.nav.bidrag.domain.enums.StønadType
 
 enum class Transaksjonskode(val korreksjonskode: String?, val negativtBeløp: Boolean) {
     A1("A3", false), // Bidragsforskudd
@@ -27,19 +27,19 @@ enum class Transaksjonskode(val korreksjonskode: String?, val negativtBeløp: Bo
     companion object {
         fun hentTransaksjonskodeForType(type: String): Transaksjonskode {
             return when (type) {
-                StonadType.FORSKUDD.name -> A1
-                StonadType.BIDRAG.name -> B1
-                StonadType.OPPFOSTRINGSBIDRAG.name -> B1
-                StonadType.BIDRAG18AAR.name -> D1
-                StonadType.EKTEFELLEBIDRAG.name -> F1
-                StonadType.MOTREGNING.name -> I1
-                EngangsbelopType.SAERTILSKUDD.name -> E1
-                EngangsbelopType.GEBYR_MOTTAKER.name -> G1
-                EngangsbelopType.GEBYR_SKYLDNER.name -> G1
-                EngangsbelopType.TILBAKEKREVING.name -> H1
-                EngangsbelopType.ETTERGIVELSE.name -> K1
-                EngangsbelopType.DIREKTE_OPPGJOR.name -> K2
-                EngangsbelopType.ETTERGIVELSE_TILBAKEKREVING.name -> K3
+                StønadType.FORSKUDD.name -> A1
+                StønadType.BIDRAG.name -> B1
+                StønadType.OPPFOSTRINGSBIDRAG.name -> B1
+                StønadType.BIDRAG18AAR.name -> D1
+                StønadType.EKTEFELLEBIDRAG.name -> F1
+                StønadType.MOTREGNING.name -> I1
+                EngangsbeløpType.SAERTILSKUDD.name -> E1
+                EngangsbeløpType.GEBYR_MOTTAKER.name -> G1
+                EngangsbeløpType.GEBYR_SKYLDNER.name -> G1
+                EngangsbeløpType.TILBAKEKREVING.name -> H1
+                EngangsbeløpType.ETTERGIVELSE.name -> K1
+                EngangsbeløpType.DIREKTE_OPPGJOR.name -> K2
+                EngangsbeløpType.ETTERGIVELSE_TILBAKEKREVING.name -> K3
                 else -> throw IllegalStateException("Ugyldig type for transaksjonskode funnet!")
             }
         }
