@@ -17,15 +17,15 @@ class PeriodeTil(override val verdi: LocalDate) : Verdiobjekt<LocalDate>() {
     }
 }
 
-class TilDatoReadingConverter : Converter<Date, PeriodeTil> {
+class PeriodeTilDatoReadingConverter : Converter<Date, PeriodeTil> {
     override fun convert(source: Date) = PeriodeTil(source.toLocalDate())
 }
 
-class TilDatoWritingConverter : Converter<PeriodeTil, Date> {
+class PeriodeTilDatoWritingConverter : Converter<PeriodeTil, Date> {
     override fun convert(source: PeriodeTil) = Date.valueOf(source.verdi)
 }
 
-class TilDatoConverter : AttributeConverter<PeriodeTil, LocalDate> {
+class PeriodeTilDatoConverter : AttributeConverter<PeriodeTil, LocalDate> {
     override fun convertToEntityAttribute(source: LocalDate?) = source?.let { PeriodeTil(source) }
     override fun convertToDatabaseColumn(source: PeriodeTil?) = source?.verdi
 }

@@ -5,27 +5,27 @@ package no.nav.bidrag.domain.tid
 import java.time.LocalDate
 import java.time.YearMonth
 
-data class Månedsperiode(override val fom: YearMonth, override val tom: YearMonth?) : Periode<YearMonth>() {
+data class Månedsperiode(override val fom: YearMonth, override val til: YearMonth?) : Periode<YearMonth>() {
 
     init {
         validate()
     }
 
     val fomMåned get() = FomMåned(fom)
-    val tomMåned get() = tom?.let { TomMåned(it) }
+    val tilMåned get() = til?.let { TilMåned(it) }
     val fomDato get() = FomDato(fom.atDay(1))
-    val tomDato get() = tom?.let { TomDato(it.atEndOfMonth()) }
+    val tilDato get() = til?.let { TilDato(it.atEndOfMonth()) }
 
-    constructor(fom: LocalDate, tom: LocalDate?) : this(YearMonth.from(fom), tom?.let { YearMonth.from(tom) })
+    constructor(fom: LocalDate, til: LocalDate?) : this(YearMonth.from(fom), til?.let { YearMonth.from(til) })
 
-    constructor(fomMåned: FomMåned, tomMåned: TomMåned? = null) : this(fomMåned.verdi, tomMåned?.verdi)
+    constructor(fomMåned: FomMåned, tilMåned: TilMåned? = null) : this(fomMåned.verdi, tilMåned?.verdi)
 
-    constructor(fom: String, tom: String) : this(YearMonth.parse(fom), YearMonth.parse(tom))
+    constructor(fom: String, til: String) : this(YearMonth.parse(fom), YearMonth.parse(til))
 
     constructor(periode: Pair<String, String>) : this(periode.first, periode.second)
 
-    override fun lagPeriode(fom: YearMonth, tom: YearMonth?): Månedsperiode {
-        return Månedsperiode(fom, tom)
+    override fun lagPeriode(fom: YearMonth, til: YearMonth?): Månedsperiode {
+        return Månedsperiode(fom, til)
     }
 
     override infix fun union(annen: Periode<YearMonth>): Månedsperiode {
@@ -37,16 +37,16 @@ data class Månedsperiode(override val fom: YearMonth, override val tom: YearMon
     }
 
     override infix fun påfølgesAv(påfølgende: Periode<YearMonth>): Boolean {
-        return this.tom?.plusMonths(1) == påfølgende.fom
+        return this.til?.plusMonths(1) == påfølgende.fom
     }
 
-    override fun tomEllerMax(): YearMonth {
-        return tom ?: YearMonth.from(LocalDate.MAX)
+    override fun tilEllerMax(): YearMonth {
+        return til ?: YearMonth.from(LocalDate.MAX)
     }
 
     override fun lengdeIHeleMåneder(): Long {
-        return (tomEllerMax().year * 12 + tomEllerMax().monthValue) - (fom.year * 12 + fom.monthValue) + 1L
+        return (tilEllerMax().minusMonths(1).year * 12 + tilEllerMax().monthValue) - (fom.year * 12 + fom.monthValue) + 1L
     }
 
-    fun toDatoperiode() = Datoperiode(fom, tom)
+    fun toDatoperiode() = Datoperiode(fom, til)
 }
